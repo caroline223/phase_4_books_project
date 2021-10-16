@@ -13,18 +13,21 @@ BookReview.destroy_all
                 )
 end
 
-200.times do 
+100.times do 
     id = Author.all.sample.id
     Book.create(title: Faker::Book.title, 
                 genre: Faker::Book.genre, 
                 publishing_date: Faker::Date.backward(days: 15000), 
-                author_id: id
+                author_id: id,
                 rating: Faker::Number.within(range: 1..10))
-     
+
     5.times do
-        BookReview.create(
-            review: Faker::Hipster.sentences(number: 4)
-        )
+        id = Book.all.sample.id
+             BookReview.create(
+                review: Faker::Lorem.paragraph(sentence_count: 5),
+                book_id: id
+                )
+        end
+
     end
 
-end
