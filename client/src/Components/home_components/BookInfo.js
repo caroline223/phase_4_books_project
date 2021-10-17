@@ -26,7 +26,7 @@ function BookInfo(props){
                   <br />
                   {genre}
                   <div>
-                    <Link to={`author/${author_id}`}> Author's Name: {author_name} </Link>   
+                    <Link to={`authors/${author_id}`}> Author's Name: {author_name} </Link>   
                   </div>
                  <div>
                     Date Published: {publishing_date}
