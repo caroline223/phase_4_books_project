@@ -13,7 +13,7 @@ function BookInfo(props){
         }
     }
 
-    const {title, genre, publishing_date, rating, author_id} = props.books
+    const {title, genre, publishing_date, author_name, rating, author_id} = props.books
 
     return(
         <Card style={layout.card} color='olive'>
@@ -26,13 +26,16 @@ function BookInfo(props){
                   <br />
                   {genre}
                   <div>
-                    <Link to={`author/${author_id}`}>Author's Name: </Link>   
+                    <Link to={`author/${author_id}`}> Author's Name: {author_name} </Link>   
                   </div>
                  <div>
                     Date Published: {publishing_date}
                  </div>
                   <div>
                     Rating: {rating}/10
+                  </div>
+                  <div>
+                    <Link>Reviews</Link>
                   </div>
                   <br />
                   
