@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Card } from 'semantic-ui-react'
 import AuthorInfo from './AuthorInfo'
+import NavBar from '../NavBar'
 
 function AuthorContainer(){
 
@@ -18,6 +19,7 @@ function AuthorContainer(){
 
    return(
        <div>
+           <NavBar />
           <h1>Featured Authors</h1> 
           <br />
          <Card.Group itemsPerRow={5}>

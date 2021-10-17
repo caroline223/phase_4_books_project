@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Image, Button } from 'semantic-ui-react'
 import authorPhoto from '../author_components/AuthorPhoto'
+import NavBar from '../NavBar'
 
 
 
@@ -46,7 +47,7 @@ function Author(props) {
                         Degree Earned: {degree}
                       </div> 
                   </Card.Description> 
-                  <Button a href="http://localhost:4000/home">Back</Button>   
+                  <Button a href="http://localhost:4000/books">Back</Button>   
                 </Card.Content>
           </Card>
       )
@@ -54,6 +55,7 @@ function Author(props) {
     
     return(
         <div>
+            <NavBar />
             { displayInfo() }
         </div>
     )

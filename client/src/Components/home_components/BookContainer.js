@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import BookInfo from './BookInfo'
 import { Card } from "semantic-ui-react"
+import NavBar from '../NavBar'
 import BookSearch from './BookSearch'
 
 function BookContainer(){
@@ -37,6 +38,7 @@ function BookContainer(){
 
    return(
        <div>
+           <NavBar />
           <h1>Recommended Books</h1> 
           <br />
          <Card.Group itemsPerRow={5}>
