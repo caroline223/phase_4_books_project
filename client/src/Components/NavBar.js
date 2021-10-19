@@ -1,27 +1,31 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import {
+  Container,
+  Dropdown,
+  Menu
+} from 'semantic-ui-react'
 
+const FixedMenuLayout = () => (
+  <div>
+    <Menu fixed='top' style={{backgroundColor: "lavender"}}>
+      <Container>
+        <Menu.Item as='a' header>
+          Simply Books
+        </Menu.Item>
+        <Menu.Item as='a'>Home</Menu.Item>
 
-function NavBar() {
+        <Dropdown item simple text='Options'>
+          <Dropdown.Menu>
+            <Dropdown.Item a href="http://localhost:4000/books">Featured Books</Dropdown.Item>
+            <Dropdown.Item a href="http://localhost:4000/authors">Featured Authors</Dropdown.Item>
+            <Dropdown.Item a href="http://localhost:4000/login">Login</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+      </Container>
+    </Menu>
 
-    const layout = {
-        nav: {
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-end",
-            height: "30px",
-            padding: "35px",
-            marginBottom: "30px",
-        }
-    };
+   
+  </div>
+)
 
-    return (
-        <nav style={layout.nav} >
-             <Link to="/books" className="navTitle">Books</Link>
-             <Link to="/authors" className="navTitle">Authors</Link>
-        </nav>
-    )
-
-
-}
-export default NavBar;
+export default FixedMenuLayout
