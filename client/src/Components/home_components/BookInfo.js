@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Image, Button } from 'semantic-ui-react'
+import { Card, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import bookPhoto from './BookPhoto'
 
@@ -13,12 +13,12 @@ function BookInfo(props){
         }
     }
 
-    const {title, genre, publishing_date, author_name, rating, author_id} = props.books
+    const {id, title, genre, publishing_date, author, rating, author_id} = props.books
 
     return(
         <Card style={layout.card} color='olive'>
         <Image src={bookPhoto[Math.floor(Math.random()*bookPhoto.length)]} width="300" height="200"/> 
-          <Card.Content className="bookDescription">
+          <Card.Content>
               <header>
               {title} 
               </header>
@@ -26,7 +26,7 @@ function BookInfo(props){
                   <br />
                   {genre}
                   <div>
-                    <Link to={`authors/${author_id}`}> Author's Name: {author_name} </Link>   
+                    <Link to={`authors/${author.id}`}> Author's Name: {author.name} </Link>   
                   </div>
                  <div>
                     Date Published: {publishing_date}
@@ -35,16 +35,11 @@ function BookInfo(props){
                     Rating: {rating}/10
                   </div>
                   <div>
-                    <Link>Reviews</Link>
+                    <Link to={`books/${id}`}>Reviews</Link>
                   </div>
                   <br />
                   
               </Card.Description>    
-            </Card.Content>
-            <Card.Content>
-                  <div >
-                    <Button>Not Interested</Button>
-                  </div>  
             </Card.Content>
       </Card>
     )

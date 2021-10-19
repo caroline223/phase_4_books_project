@@ -13,7 +13,7 @@ function Author(props) {
         fetch(`http://localhost:3000/authors/${props.match.params.id}`)
         .then((response) => response.json())
         .then((data) => setAuthor(data))
-    }, [])
+    }, [props.match.params.id])
 
     function displayInfo() {
         const layout = {
@@ -56,6 +56,7 @@ function Author(props) {
     return(
         <div>
             <NavBar />
+            <h1>Author's Corner</h1>
             { displayInfo() }
         </div>
     )
