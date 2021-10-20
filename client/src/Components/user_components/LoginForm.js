@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 
 const LoginForm = () => (
+  
   <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
       <Header as='h2' color='purple' textAlign='center'>
@@ -28,7 +29,7 @@ const LoginForm = () => (
         </Segment>
       </Form>
       <Message>
-        New to us? <a href='#'>Sign Up</a>
+        New to us? <a href='http://localhost:4000/sign_up'>Sign Up</a>
       </Message>
     </Grid.Column>
   </Grid>
