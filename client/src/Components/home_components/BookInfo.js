@@ -13,7 +13,7 @@ function BookInfo(props){
         }
     }
 
-    const { id, title, genre, publishing_date, author, rating } = props.books
+    const { id, title, genre, publishing_date, author, rating } = props.book
 
     return(
         <Card style={layout.card} color='olive'>

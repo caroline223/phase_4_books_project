@@ -5,7 +5,7 @@ const BookSearch = (props) => {
     return(
         <div className = "ui search searchBar">
         <div className="ui icon input">
-            <input onChange={props.handleSearchInput} placeholder="Genre" className="prompt" />
+            <input onChange={props.searchBooks} placeholder="Genre" className="prompt" />
             <i className="search icon" />
         </div>
     </div>
