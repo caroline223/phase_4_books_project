@@ -23,7 +23,7 @@ const LoginForm = () => (
             Login
           </Button>
           <br />
-          <Button a href="http://localhost:4000/books" fluid size='large'>
+          <Button a href="http://localhost:4000/home" fluid size='large'>
             Home
           </Button>
         </Segment>
