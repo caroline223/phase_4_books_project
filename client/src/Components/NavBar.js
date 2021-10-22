@@ -12,13 +12,14 @@ const FixedMenuLayout = () => (
         <Menu.Item as='a' header>
           Simply Books
         </Menu.Item>
-        <Menu.Item as='a'>Home</Menu.Item>
+        <Menu.Item a href="http://localhost:4000/home">Home</Menu.Item>
 
         <Dropdown item simple text='Options'>
           <Dropdown.Menu>
-            <Dropdown.Item a href="http://localhost:4000/books">Featured Books</Dropdown.Item>
-            <Dropdown.Item a href="http://localhost:4000/authors">Featured Authors</Dropdown.Item>
-            <Dropdown.Item a href="http://localhost:4000/login">Login</Dropdown.Item>
+            <Dropdown.Item a="true" href="http://localhost:4000/books">Featured Books</Dropdown.Item>
+            <Dropdown.Item a="true" href="http://localhost:4000/authors">Featured Authors</Dropdown.Item>
+            <Dropdown.Item a="true" href="http://localhost:4000/login">Login</Dropdown.Item>
+            <Dropdown.Item a="true" href="http://localhost:4000/sign_up">Create An Account</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </Container>
