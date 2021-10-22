@@ -23,10 +23,12 @@ function AuthorBooksContainer({ match }) {
         <div>
             <NavBar />
                 <h1>Author's Writing Collection</h1> 
-                <br />
+                <div>
                 <Card.Group >
                     {data.length > 0 && booksDisplay()}
                 </Card.Group>
+                </div>
+                <br />
                 <div>
                     <Button a href="http://localhost:4000/authors">Back</Button>
                 </div>
