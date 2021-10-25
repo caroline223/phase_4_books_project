@@ -1,0 +1,2 @@
+class UserPersonalBook < ApplicationRecord
+end
