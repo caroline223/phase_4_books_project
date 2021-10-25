@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   
+  resources :user_personal_books
+  resources :personal_books
+  resources :user_personal_recommendations
+  resources :personal_recommendations
+  resources :users
   resources :book_reviews
   resources :authors
   resources :books
