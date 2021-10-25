@@ -11,6 +11,7 @@ const SignUpForm = () => (
         <Form.Input label='First Name' placeholder='first name' />
         <Form.Input label='Last Name' placeholder='last name' />
         <Form.Input label='Email' placeholder='joe@schmoe.com' />
+        <Form.Input label='Username' placeholder='username' />
         <Form.Input label='Password' type='password' />
         <Form.Input label='Confirm password' type='password' />
 
