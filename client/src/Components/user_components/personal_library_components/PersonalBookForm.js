@@ -8,7 +8,17 @@ function PersonalBookForm(props){
     const [formData, setFormData] = useState({
         image_url: null,
         title: '',
-        genre: '',
+        genre: {
+            fiction: '',
+            non_fiction: '',
+            science_fiction: '',
+            romance: '',
+            mystery: '',
+            biography: '',
+            auto_biography: '',
+            speech: '',
+            other: ''
+        },
         publishing_date: '',
         rating: '',
         author: '',
@@ -48,8 +58,9 @@ function PersonalBookForm(props){
         <div >
             <br />
             <div >Book Submission</div>
+            <br />
             <Form onSubmit={handleFormSubmit}>
-                <div className="formField"> 
+                <div> 
                 <Form.Field>
                     <label>Title</label>
                     <input 
@@ -60,6 +71,8 @@ function PersonalBookForm(props){
                         style={{width: "100%"}}
                         required
                     />
+                </Form.Field>
+                <Form.Field>
                      <label >Author's Full Name</label>
                      <input 
                         placeholder="Full Name"
@@ -69,6 +82,8 @@ function PersonalBookForm(props){
                         style={{width: "100%"}}
                         required
                     />
+                </Form.Field>
+                <Form.Field>
                      <label>Rating</label>
                     <input 
                         placeholder="Enter a number from 1 - 10"
@@ -78,19 +93,29 @@ function PersonalBookForm(props){
                         onChange={handleOnChange}
                         style={{width: "100%"}}
                         required
-                    />
-                    
+                    />  
                 </Form.Field>
                 <Form.Field>
                     <label >Genre</label>
+                    <select name="genre" onChange={handleOnChange} value={formData.genre}>
+                        <option value="">--Please select an option--</option>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Non-Fiction">Non-Ficton</option>
+                        <option value="Science-Fiction">Science-Fiction</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Biography">Biography</option>
+                        <option value="Autobiography">Autobiography</option>
+                        <option value="Speech">Speech</option>
+                        <option value="Other">Other: 
+                        </option>
+                    </select>
                     <input 
-                        placeholder="Genre"
                         name="genre"
-                        value={formData.genre}
+                        value={formData.genre.other}
                         onChange={handleOnChange}
                         style={{width: "100%"}}
-                        required
-                    />
+                    />  
                 </Form.Field>
                 <Form.Field>
                     <label >Date of Publish</label>
@@ -104,16 +129,12 @@ function PersonalBookForm(props){
                         required
                     />
                 </Form.Field>
-                </div>
-                <br />
                <Form.Field>
-                   <div >
-                        <Form.Button >Submit</Form.Button>
-                        <br />
-                    </div>   
+                    <Form.Button >Submit</Form.Button>
                </Form.Field>
+               </div>
             </Form>
-
+            <br />
             <div >
                 <Form.Button ><a href="http://localhost:4000/personal_books"> Back </a></Form.Button>  
             </div>
