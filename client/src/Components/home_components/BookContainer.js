@@ -22,7 +22,7 @@ function BookContainer(){
 
     const searchBooks = (event) => {
         setSearchInput(event.target.value)
-       if (searchInput !== ''){
+       if (event.target.value !== ''){
         const filteredData = books.filter(book => book.genre.toLowerCase().includes(searchInput.toLowerCase()))
         setFilteredBooks(filteredData)
        }
