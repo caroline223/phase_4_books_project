@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 function PersonalBookContainer(){
 
-    const [books, setBooks] = useState([])
+    const [personalBooks, setPersonalBooks] = useState([])
     const [filteredBooks, setFilteredBooks] = useState([])
     const [searchInput, setSearchInput] = useState('')
 
@@ -17,40 +17,47 @@ function PersonalBookContainer(){
     useEffect(() => {
         fetch('http://localhost:3000/personal_books')
         .then((response) => response.json())
-        .then((data) => setBooks(data))
+        .then((data) => setPersonalBooks(data))
     }, [])
 
 
     const searchBooks = (event) => {
         setSearchInput(event.target.value)
-       if (searchInput !== ''){
-        const filteredData = books.filter(book => book.genre.toLowerCase().includes(searchInput.toLowerCase()))
+       if (event.target.value !== ''){
+        const filteredData = personalBooks.filter(book => book.genre.toLowerCase().includes(searchInput.toLowerCase()))
         setFilteredBooks(filteredData)
        }
        else {
-        setFilteredBooks(books)
+        setFilteredBooks(personalBooks)
        }
     }
     
     
-    const bookDisplay = () =>  books.map((book) => <PersonalBookInfo key={book.id} book={book} />)
-    const filteredBookDisplay = () => filteredBooks.map((book) => <PersonalBookInfo key={book.id} book={book} />)
+    const bookDisplay = () =>  personalBooks.map((book) => <PersonalBookInfo key={book.id} book={book} deleteBook={deleteBook} />)
+    const filteredBookDisplay = () => filteredBooks.map((book) => <PersonalBookInfo key={book.id} book={book} deleteBook={deleteBook} />)
 
-   return(
+    
+    const deleteBook = (id) => {
+        console.log(id)
+        const newBooks = personalBooks.filter(b => b.id !== id)
+
+       setPersonalBooks(newBooks)
+    }
+  
+   
+    return(
        <div>
             <h1>Your Personal Library</h1> 
             <Link to="/pbform">Add a Book !</Link>
             <br />
             <BookSearch searchBooks={searchBooks} />
             <br />
-            <Card.Group itemsPerRow={5}>
+            <Card.Group itemsPerRow={4}>
                 {filteredBooks.length > 0 ? filteredBookDisplay(): bookDisplay()}
             </Card.Group>
        </div>
    )
     
-
-
 
 }
 

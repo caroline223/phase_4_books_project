@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Image } from 'semantic-ui-react'
+import { Card, Image, Button } from 'semantic-ui-react'
 import bookPhoto from '../../home_components/BookPhoto'
 
 
@@ -11,6 +11,18 @@ function PersonalBookInfo(props){
             borderRadius: "40px"
         }
     }
+
+    const removeBook = (event) => {
+      const id = parseInt(event.target.id)
+     if(window.confirm("Are you sure?"))
+     fetch(`http://localhost:3000/personal_books/${id}`, {
+         method: 'DELETE'
+     })
+    .then(() => { props.deleteBook(id) })
+   }
+
+    
+    
 
     const { title, genre, publishing_date, author, rating, review } = props.book
 
@@ -36,9 +48,9 @@ function PersonalBookInfo(props){
                   <div>
                     {review}
                   </div>
-                  <br />
-                  
+                  <br />   
               </Card.Description>    
+              <Button onClick={removeBook} id={props.book.id}>Remove</Button>
             </Card.Content>
       </Card>
     )
