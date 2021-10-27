@@ -2,7 +2,6 @@ import React from 'react'
 import { Card, Image } from 'semantic-ui-react'
 import bookPhoto from '../home_components/BookPhoto'
 
-
 function AuthorBooksInfo(props) {
 
 
