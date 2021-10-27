@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Image } from 'semantic-ui-react'
+import { Card, Image, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import bookPhoto from './BookPhoto'
 
@@ -13,7 +13,19 @@ function BookInfo(props){
         }
     }
 
-    const { id, title, genre, publishing_date, author, rating } = props.book
+    const removeBook = (event) => {
+      const id = parseInt(event.target.id)
+     if(window.confirm("Are you sure?"))
+     fetch(`http://localhost:3000/books/${id}`, {
+         method: 'DELETE'
+     })
+    .then(() => { props.deleteBook(id) })
+   }
+
+  
+
+   
+    const { id, title, genre, publishing_date, author, rating, read } = props.book
 
     return(
         <Card style={layout.card} color='olive'>
@@ -38,8 +50,15 @@ function BookInfo(props){
                     <Link to={`books/${id}`}>Reviews</Link>
                   </div>
                   <br />
-                  
-              </Card.Description>    
+                  <div>Seems Interesting?
+                    <br />
+                    <Button onClick={props.readBook} id={props.book.id}>{read ? "Yes" : "No"}</Button>
+                    
+                    </div>  
+              </Card.Description> 
+             
+              <br /> 
+              <Button onClick={removeBook} id={props.book.id}>Remove</Button>
             </Card.Content>
       </Card>
     )

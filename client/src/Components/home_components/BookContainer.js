@@ -10,6 +10,7 @@ function BookContainer(){
     const [books, setBooks] = useState([])
     const [filteredBooks, setFilteredBooks] = useState([])
     const [searchInput, setSearchInput] = useState('')
+    
 
     
     
@@ -30,11 +31,35 @@ function BookContainer(){
         setFilteredBooks(books)
        }
     }
-    
-    
-    const bookDisplay = () =>  books.map((book) => <BookInfo key={book.id} book={book} />)
-    const filteredBookDisplay = () => filteredBooks.map((book) => <BookInfo key={book.id} book={book} />)
 
+    
+    const deleteBook = (id) => {
+        console.log(id)
+        const newBooks = books.filter(b => b.id !== id)
+       setBooks(newBooks)
+    }
+
+   
+    const bookDisplay = () =>  books.map((book) => <BookInfo key={book.id} book={book} deleteBook={deleteBook} readBook={readBook} />)
+    const filteredBookDisplay = () => filteredBooks.map((book) => <BookInfo key={book.id} book={book} deleteBook={deleteBook} readBook={readBook} />)
+
+
+     const readBook = (event) => {
+         console.log(event.target.id)
+        const id = parseInt(event.target.id)
+        if(window.confirm("Nice Choice."))
+        fetch(`http://localhost:3000/books/${id}`, {
+            method: "PATCH",
+            headers: {
+            "Content-type": "application/json"
+            },
+            body: JSON.stringify(books.read = true)
+        })
+        .then(response => response.json())
+        .then(data => setFilteredBooks(data))
+    }
+
+    
    return(
        <div>
             <NavBar />
@@ -43,7 +68,7 @@ function BookContainer(){
             <br />
             <BookSearch searchBooks={searchBooks} />
             <br />
-            <Card.Group itemsPerRow={5}>
+            <Card.Group itemsPerRow={4}>
                 {filteredBooks.length > 0 ? filteredBookDisplay(): bookDisplay()}
             </Card.Group>
        </div>
