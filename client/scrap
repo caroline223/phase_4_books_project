@@ -1,0 +1,75 @@
+# const handleSearchInput = (event) => {
+#         setSearchInput(
+#             {searchInput: event.target.value}
+#         )
+
+#         if(event.target.value === '' ) {
+#             setBooks(books)
+#         } else {
+#             setBooks(filterSearchByInput(event.target.value))
+#         }
+#     }
+
+#     const filterSearchByInput = (input) => {
+#         console.log(input)
+#         books.filter((book) => book.genre.toLowerCase().includes(input.toLowerCase())) 
+
+#     }
+
+# rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+#   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_error
+
+#   def render_not_found_response
+#     render json: {error: "Record Not Found"}, status: :not_found 
+#   end
+
+#   def render_unprocessable_entity_error
+#     render json: {errors: exception.record.errors.full_messages}, status: :unprocessable_entity
+#   end
+
+
+
+# def index 
+#     personal_books = PersonalBook.all 
+#     render json: personal_books
+# end
+
+# def create 
+#     personal_book = PersonalBook.create(personal_book_params)
+#     render json: personal_book 
+# end
+
+# def update
+# end
+
+# def destroy
+#     personal_book = find_personal_book
+#     personal_book.destroy 
+# end
+
+# private 
+
+# def find_personal_book
+#     PersonalBook.find(params[:id])
+# end
+
+# def personal_book_params
+#    params.require(:personal_book).permit(:title, :author, :publishing_date, :rating, :review)
+# end
+    
+# const [book, setBook] = useState(props.book)
+
+# const readBook = (event) => {
+#     console.log(event.target.id)
+#    const id = parseInt(event.target.id)
+#    if(window.confirm("Nice Choice."))
+#    fetch(`http://localhost:3000/books/${id}`, {
+#        method: "PATCH",
+#        headers: {
+#        "Content-type": "application/json"
+#        },
+#        body: JSON.stringify({read: true})
+#    })
+#    .then(response => response.json())
+#    .then(book => setBook(book))
+# }
