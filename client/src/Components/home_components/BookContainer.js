@@ -40,23 +40,20 @@ function BookContainer(){
     }
 
    
-    const bookDisplay = () =>  books.map((book) => <BookInfo key={book.id} book={book} deleteBook={deleteBook} readBook={readBook} />)
-    const filteredBookDisplay = () => filteredBooks.map((book) => <BookInfo key={book.id} book={book} deleteBook={deleteBook} readBook={readBook} />)
+    const bookDisplay = () =>  books.map((book) => <BookInfo key={book.id} book={book} deleteBook={deleteBook} addBook={addBook} />)
+    const filteredBookDisplay = () => filteredBooks.map((book) => <BookInfo key={book.id} book={book} deleteBook={deleteBook} addBook={addBook} />)
 
 
-     const readBook = (event) => {
-         console.log(event.target.id)
+     
+
+    const addBook = (event) => {
         const id = parseInt(event.target.id)
-        if(window.confirm("Nice Choice."))
-        fetch(`http://localhost:3000/books/${id}`, {
-            method: "PATCH",
-            headers: {
-            "Content-type": "application/json"
-            },
-            body: JSON.stringify(books.read = true)
+        fetch(`http://localhost:3000/books/${id}/user_books`, {
+            method: "POST",
         })
-        .then(response => response.json())
-        .then(data => setFilteredBooks(data))
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+    
     }
 
     

@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Card, Image, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import bookPhoto from './BookPhoto'
 
 
+
 function BookInfo(props){
+
+  const [addNewBook, setAddNewBook] = useState(false)
+
+  const handleClick = () => {
+    setAddNewBook((addNewBook) => !addNewBook)
+  }
+
 
     const layout = {
         card : {
@@ -13,19 +21,8 @@ function BookInfo(props){
         }
     }
 
-    const removeBook = (event) => {
-      const id = parseInt(event.target.id)
-     if(window.confirm("Are you sure?"))
-     fetch(`http://localhost:3000/books/${id}`, {
-         method: 'DELETE'
-     })
-    .then(() => { props.deleteBook(id) })
-   }
-
-  
-
    
-    const { id, title, genre, publishing_date, author, rating, read } = props.book
+    const { id, title, genre, publishing_date, author, rating } = props.book
 
     return(
         <Card style={layout.card} color='olive'>
@@ -50,15 +47,8 @@ function BookInfo(props){
                     <Link to={`books/${id}`}>Reviews</Link>
                   </div>
                   <br />
-                  <div>Seems Interesting?
-                    <br />
-                    <Button onClick={props.readBook} id={props.book.id}>{read ? "Yes" : "No"}</Button>
-                    
-                    </div>  
+                    <Button onClick={props.addBook}  id={props.book.id}>{addNewBook ? "Book Added" : "Add Book to Library"}</Button>  
               </Card.Description> 
-             
-              <br /> 
-              <Button onClick={removeBook} id={props.book.id}>Remove</Button>
             </Card.Content>
       </Card>
     )
