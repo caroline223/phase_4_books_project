@@ -1,2 +1,0 @@
-class UserPersonalBook < ApplicationRecord
-end

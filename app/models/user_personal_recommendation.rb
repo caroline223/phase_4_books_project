@@ -1,2 +1,0 @@
-class UserPersonalRecommendation < ApplicationRecord
-end
