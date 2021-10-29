@@ -18,8 +18,7 @@ const FixedMenuLayout = () => (
           <Dropdown.Menu>
             <Dropdown.Item a="true" href="http://localhost:4000/books">Featured Books</Dropdown.Item>
             <Dropdown.Item a="true" href="http://localhost:4000/authors">Featured Authors</Dropdown.Item>
-            <Dropdown.Item a="true" href="http://localhost:4000/login">Login</Dropdown.Item>
-            <Dropdown.Item a="true" href="http://localhost:4000/sign_up">Create An Account</Dropdown.Item>
+            <Dropdown.Item a="true" href="http://localhost:4000/mylibrary">Personal Library</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </Container>
