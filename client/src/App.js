@@ -9,7 +9,6 @@ import LoginForm from './Components/user_components/LoginForm';
 import SignUpForm from './Components/user_components/SignUpForm';
 import HomePage from './Components/HomePage';
 import PersonalBookContainer from './Components/user_components/personal_library_components/PersonalBookContainer';
-import PersonalBookForm from './Components/user_components/personal_library_components/PersonalBookForm';
 
 
 function App() {
@@ -23,9 +22,8 @@ function App() {
        <Route exact path="/books/:id" component={BookReviewsContainer} />
        <Route exact path="/authors/books/:id" component={AuthorBooksContainer} />
        <Route exact path="/login" component={LoginForm} />
-       <Route exact path ="/sign_up" component={SignUpForm} />
-       <Route exact path ="/personal_books" component={PersonalBookContainer} />
-       <Route exact path ="/pbform" component={PersonalBookForm} />
+       <Route exact path ="/signup" component={SignUpForm} />
+       <Route exact path ="/mylibrary" component={PersonalBookContainer} />
      </Switch>
    </Router>
   );
