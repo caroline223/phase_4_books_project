@@ -1,2 +1,0 @@
-class PersonalRecommendationsController < ApplicationController
-end

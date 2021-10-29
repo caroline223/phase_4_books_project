@@ -18,12 +18,14 @@ class AuthorsController < ApplicationController
                 title: book.title,
                 genre: book.genre,
                 publishing_date: book.publishing_date,
-                rating: book.rating 
+                rating: book.rating,
             }
             
         end
         render json: author_books
     end
+
+    
 
 
     private
