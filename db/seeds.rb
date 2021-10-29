@@ -2,6 +2,8 @@ require 'faker'
 Author.destroy_all
 Book.destroy_all
 BookReview.destroy_all
+User.destroy_all
+UserBook.destroy_all
 
 30.times do
     Author.create(name: Faker::Name.name, 
@@ -31,3 +33,9 @@ end
 
     end
 
+     User.create(user_name: "Caroline", password: "chocolate")
+
+     3.times do 
+       book = Book.all.sample 
+       User.first.user_books.create(book_id: book.id)
+     end
