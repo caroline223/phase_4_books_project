@@ -1,60 +1,58 @@
 import React, { useState, useEffect } from 'react'
 import PersonalBookInfo from './PersonalBookInfo'
-import { Card } from 'semantic-ui-react'
+import { Card, Button } from 'semantic-ui-react'
 import BookSearch from '../../home_components/BookSearch'
-import { Link } from 'react-router-dom'
-
 
 
 function PersonalBookContainer(){
 
-    const [personalBooks, setPersonalBooks] = useState([])
+    const [userBooks, setUserBooks] = useState([])
     const [filteredBooks, setFilteredBooks] = useState([])
     const [searchInput, setSearchInput] = useState('')
 
     
     
     useEffect(() => {
-        fetch('http://localhost:3000/personal_books')
+        fetch('http://localhost:3000/user_books')
         .then((response) => response.json())
-        .then((data) => setPersonalBooks(data))
+        .then((data) => setUserBooks(data))
     }, [])
 
 
     const searchBooks = (event) => {
         setSearchInput(event.target.value)
        if (event.target.value !== ''){
-        const filteredData = personalBooks.filter(book => book.genre.toLowerCase().includes(searchInput.toLowerCase()))
+        const filteredData = userBooks.filter(book => book.book.genre.toLowerCase().includes(searchInput.toLowerCase()))
         setFilteredBooks(filteredData)
        }
        else {
-        setFilteredBooks(personalBooks)
+        setFilteredBooks(userBooks)
        }
     }
     
     
-    const bookDisplay = () =>  personalBooks.map((book) => <PersonalBookInfo key={book.id} book={book} deleteBook={deleteBook} />)
+    const bookDisplay = () =>  userBooks.map((book) => <PersonalBookInfo key={book.id} book={book} deleteBook={deleteBook} />)
     const filteredBookDisplay = () => filteredBooks.map((book) => <PersonalBookInfo key={book.id} book={book} deleteBook={deleteBook} />)
 
     
     const deleteBook = (id) => {
         console.log(id)
-        const newBooks = personalBooks.filter(b => b.id !== id)
-
-       setPersonalBooks(newBooks)
+        const newBooks = userBooks.filter(b => b.id !== id)
+       setUserBooks(newBooks)
     }
   
    
     return(
        <div>
             <h1>Your Personal Library</h1> 
-            <Link to="/pbform">Add a Book !</Link>
             <br />
             <BookSearch searchBooks={searchBooks} />
             <br />
             <Card.Group itemsPerRow={4}>
                 {filteredBooks.length > 0 ? filteredBookDisplay(): bookDisplay()}
             </Card.Group>
+            <br />
+            <Button a href="http://localhost:4000/books">Back</Button>
        </div>
    )
     

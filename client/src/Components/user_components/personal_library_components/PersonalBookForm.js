@@ -35,9 +35,9 @@ function PersonalBookForm(props){
     function handleFormSubmit(event){
         event.preventDefault()
         alert("Your book has been added! Go take a look!")
-        fetch('http://localhost:3000/personal_books', configObject())
+        fetch('http://localhost:3000/user_books', configObject())
         .then(response => response.json())
-        .then(data => props.history.push('/personal_books'))
+        .then(data => props.history.push('/user_books'))
         setFormData(formData)
            
     }
@@ -136,7 +136,7 @@ function PersonalBookForm(props){
             </Form>
             <br />
             <div >
-                <Form.Button ><a href="http://localhost:4000/personal_books"> Back </a></Form.Button>  
+                <Form.Button ><a href="http://localhost:4000/personal_library"> Back </a></Form.Button>  
             </div>
         </div>
     )

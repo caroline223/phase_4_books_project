@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Card, Image, Button } from 'semantic-ui-react'
 import bookPhoto from '../../home_components/BookPhoto'
 
 
 function PersonalBookInfo(props){
+
+  const [book, setBook] = useState(props.book)
 
     const layout = {
         card : {
@@ -15,17 +17,41 @@ function PersonalBookInfo(props){
     const removeBook = (event) => {
       const id = parseInt(event.target.id)
      if(window.confirm("Are you sure?"))
-     fetch(`http://localhost:3000/personal_books/${id}`, {
+     fetch(`http://localhost:3000/user_books/${id}`, {
          method: 'DELETE'
      })
     .then(() => { props.deleteBook(id) })
    }
 
-    
-    
 
-    const { title, genre, publishing_date, author, rating, review } = props.book
+    const readBook = (event) => {
+      const id = parseInt(event.target.id)
+      fetch(`http://localhost:3000/user_books/${id}`, {
+          method: "PATCH",
+          headers: {
+          "Content-type": "application/json"
+          },
+          body: JSON.stringify({read: true})
+      })
+      .then(response => response.json())
+      .then(book => setBook(book))
+  }
 
+  const recommendBook = (event) => {
+    const id = parseInt(event.target.id)
+    fetch(`http://localhost:3000/user_books/${id}`, {
+        method: "PATCH",
+        headers: {
+        "Content-type": "application/json"
+        },
+        body: JSON.stringify({consider: true})
+    })
+    .then(response => response.json())
+    .then(book => setBook(book))
+}
+
+    const { title, genre, publishing_date, author, rating, review } = props.book.book
+    
     return(
         <Card style={layout.card} color='olive'>
         <Image src={bookPhoto[Math.floor(Math.random()*bookPhoto.length)]} width="300" height="200"/> 
@@ -48,14 +74,21 @@ function PersonalBookInfo(props){
                   <div>
                     {review}
                   </div>
-                  <br />   
-              </Card.Description>    
+                  <br />  
+                  <div>Did you read this book?
+                  <br />
+                    <Button onClick={readBook} id={props.book.id}>{book.read ? "Yes" : "No"}</Button>
+                  </div> 
+                  <div>Would you recommend this book?
+                  <br />
+                    <Button onClick={recommendBook} id={props.book.id}>{book.consider ? "Yes" : "No"}</Button>
+                  </div>   
+              </Card.Description>  
+              <br />  
               <Button onClick={removeBook} id={props.book.id}>Remove</Button>
             </Card.Content>
       </Card>
     )
-
-
 }
 
 export default PersonalBookInfo;
