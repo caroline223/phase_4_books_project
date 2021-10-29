@@ -1,10 +1,8 @@
 import React from 'react'
 import { Button, Form, Message } from 'semantic-ui-react'
-import NavBar from '/Users/carolineforrester/Flatiron/code/phase_4/project/project-template-react-rails-api/client/src/Components/NavBar.js'
 
 const SignUpForm = () => (
     <div>
-        <NavBar />
         <br />
         <h1>Create An Account</h1>
     <Form success>

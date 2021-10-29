@@ -29,7 +29,7 @@ const LoginForm = () => (
         </Segment>
       </Form>
       <Message>
-        New to us? <a href='http://localhost:4000/sign_up'>Sign Up</a>
+        New to us? <a href='http://localhost:4000/signup'>Sign Up</a>
       </Message>
     </Grid.Column>
   </Grid>
