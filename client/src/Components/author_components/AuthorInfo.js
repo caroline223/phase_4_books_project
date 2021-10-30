@@ -17,7 +17,7 @@ function AuthorInfo(props) {
     
 
     return(
-        <Card style={layout.card} color='olive' className="bookDescription">
+        <Card style={layout.card} color='olive' className="description">
         <Image src={authorPhoto[Math.floor(Math.random()*authorPhoto.length)]} width="300" height="200"/> 
           <Card.Content>
               <header>
