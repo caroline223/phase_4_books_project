@@ -59,11 +59,11 @@ function BookContainer(){
    return(
        <div>
             <NavBar />
-            <br />
-            <h1>Featured Books</h1> 
-            <br />
+            <br /><br /><br /><br />
+            <div className="h1">Featured Books</div> 
+            <br /><br />
             <BookSearch searchBooks={searchBooks} />
-            <br />
+            <br /><br />
             <Card.Group itemsPerRow={4}>
                 {filteredBooks.length > 0 ? filteredBookDisplay(): bookDisplay()}
             </Card.Group>

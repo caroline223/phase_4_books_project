@@ -31,7 +31,7 @@ function Author(props) {
         return(
             <Card style={layout.card} color='olive'>
             <Image src={authorPhoto[Math.floor(Math.random()*authorPhoto.length)]} width="300" height="200"/> 
-              <Card.Content >
+              <Card.Content className="description" >
                   <header>
                   {name} 
                   </header>
@@ -48,6 +48,7 @@ function Author(props) {
                         Degree Earned: {degree}
                       </div> 
                   </Card.Description> 
+                  <br />
                   <Button a href="http://localhost:4000/books">Back</Button>   
                 </Card.Content>
           </Card>
@@ -57,7 +58,8 @@ function Author(props) {
     return(
         <div>
             <NavBar />
-            <h1>Author's Corner</h1>
+            <br /> <br /> <br />
+            <div className="h1">Author's Corner</div>
             { displayInfo() }
         </div>
     )

@@ -21,12 +21,13 @@ function BookReviewsContainer({ match }) {
    return(
        <div>
            <NavBar />
-          <h1>Reviews</h1> 
-          <br />
+           <br /> <br /> <br />
+          <div className="h1">Reviews</div> 
+          <br /> <br /> <br />
          <Card.Group>
              {data.length > 0 && reviewsDisplay()}
          </Card.Group>
-         <div>
+         <div className="buttonPosition">
              <Button a href="http://localhost:4000/books">Back</Button>
          </div>
        </div>

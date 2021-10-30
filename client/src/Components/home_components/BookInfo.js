@@ -24,9 +24,9 @@ function BookInfo(props){
     const { id, title, genre, publishing_date, author, rating } = props.book
 
     return(
-        <Card style={layout.card} color='olive'>
+        <Card style={layout.card} color='olive' >
         <Image src={bookPhoto[Math.floor(Math.random()*bookPhoto.length)]} width="300" height="200"/> 
-          <Card.Content>
+          <Card.Content className="description">
               <header>
               {title} 
               </header>
@@ -46,8 +46,10 @@ function BookInfo(props){
                     <Link to={`books/${id}`}>Reviews</Link>
                   </div>
                   <br />
-                    <Button onClick={clickNewBook}  id={props.book.id}>{addNewBook ? "Book Added" : "Add To Library"}</Button>  
               </Card.Description> 
+              <div className="buttonPosition">
+                    <Button onClick={clickNewBook}  id={props.book.id}>{addNewBook ? "Book Added" : "Add To Library"}</Button>  
+                  </div>
             </Card.Content>
       </Card>
     )
