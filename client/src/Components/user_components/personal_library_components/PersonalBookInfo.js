@@ -27,20 +27,20 @@ function PersonalBookInfo(props){
     const readBook = (event) => {
       const id = parseInt(event.target.id)
       fetch(`http://localhost:3000/user_books/${id}`, {
-          method: "PATCH",
+          method: 'PATCH',
           headers: {
           "Content-type": "application/json"
           },
           body: JSON.stringify({read: true})
       })
-      .then(response => response.json())
-      .then(book => setBook(book))
+      .then((response) => response.json())
+      .then((book) => setBook(book))
   }
 
   const recommendBook = (event) => {
     const id = parseInt(event.target.id)
     fetch(`http://localhost:3000/user_books/${id}`, {
-        method: "PATCH",
+        method: 'PATCH',
         headers: {
         "Content-type": "application/json"
         },
@@ -50,8 +50,8 @@ function PersonalBookInfo(props){
     .then(book => setBook(book))
 }
 
-    const { title, genre, publishing_date, author, rating, review } = props.book.book
-    
+    const { title, genre, publishing_date, rating, review } = props.book.book
+   
     return(
         <Card style={layout.card} color='olive'>
         <Image src={bookPhoto[Math.floor(Math.random()*bookPhoto.length)]} width="300" height="200"/> 
@@ -62,9 +62,6 @@ function PersonalBookInfo(props){
               <Card.Description>
                   <br />
                   {genre}
-                  <div>
-                    {author}  
-                  </div>
                  <div>
                     Date Published: {publishing_date}
                  </div>
