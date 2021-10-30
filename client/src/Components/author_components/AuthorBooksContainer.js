@@ -22,15 +22,17 @@ function AuthorBooksContainer({ match }) {
     return(
         <div>
             <NavBar />
-                <h1>Author's Writing Collection</h1> 
+            <br /><br /><br />
+                <div className="h1">Author's Writing Collection</div> 
+                <br /><br /><br /><br />
                 <div>
                 <Card.Group >
                     {data.length > 0 && booksDisplay()}
                 </Card.Group>
                 </div>
                 <br />
-                <div>
-                    <Button a href="http://localhost:4000/authors">Back</Button>
+                <div className="buttonPosition">
+                    <Button a href="http://localhost:4000/authors" >Back</Button>
                 </div>
         </div>
     )

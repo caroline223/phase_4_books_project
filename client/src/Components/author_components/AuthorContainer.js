@@ -19,9 +19,10 @@ function AuthorContainer(){
 
    return(
        <div>
+           <br /><br /><br /><br />
            <NavBar />
-          <h1>Featured Authors</h1> 
-          <br />
+          <div className="h1">Featured Authors</div> 
+          <br /><br /><br />
          <Card.Group itemsPerRow={5}>
              {authorDisplay}
          </Card.Group>
