@@ -44,15 +44,18 @@ function PersonalBookContainer(){
    
     return(
        <div>
-            <h1>Your Personal Library</h1> 
             <br />
+            <div className="h1">Your Personal Library</div> 
+            <br /><br />
             <BookSearch searchBooks={searchBooks} />
-            <br />
+            <br /> <br />
             <Card.Group itemsPerRow={4}>
                 {filteredBooks.length > 0 ? filteredBookDisplay(): bookDisplay()}
             </Card.Group>
             <br />
+            <div className="buttonPosition">
             <Button a href="http://localhost:4000/books">Back</Button>
+            </div>
        </div>
    )
     
