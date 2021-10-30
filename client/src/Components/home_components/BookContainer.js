@@ -11,7 +11,6 @@ function BookContainer(){
     const [filteredBooks, setFilteredBooks] = useState([])
     const [searchInput, setSearchInput] = useState('')
     
-
     
     
     useEffect(() => {
@@ -40,7 +39,7 @@ function BookContainer(){
     }
 
    
-    const bookDisplay = () =>  books.map((book) => <BookInfo key={book.id} book={book} deleteBook={deleteBook} addBook={addBook} />)
+    const bookDisplay = () =>  books.map((book) => <BookInfo key={book.id} book={book} deleteBook={deleteBook} addBook={addBook}  />)
     const filteredBookDisplay = () => filteredBooks.map((book) => <BookInfo key={book.id} book={book} deleteBook={deleteBook} addBook={addBook} />)
 
 
@@ -52,11 +51,11 @@ function BookContainer(){
             method: "POST",
         })
         .then((response) => response.json())
-        .then((data) => console.log(data))
-    
+        .then((data) => console.log(data));
     }
 
     
+  
    return(
        <div>
             <NavBar />

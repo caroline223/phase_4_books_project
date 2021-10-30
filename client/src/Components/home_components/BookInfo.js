@@ -4,14 +4,9 @@ import { Link } from 'react-router-dom'
 import bookPhoto from './BookPhoto'
 
 
-
 function BookInfo(props){
 
-  const [addNewBook, setAddNewBook] = useState(false)
-
-  const handleClick = () => {
-    setAddNewBook((addNewBook) => !addNewBook)
-  }
+    const [addNewBook, setAddNewBook] = useState(false)
 
 
     const layout = {
@@ -21,7 +16,11 @@ function BookInfo(props){
         }
     }
 
-   
+    const clickNewBook = (id) => {
+      props.addBook(id);
+      setAddNewBook((addNewBook) => !addNewBook)
+    }
+
     const { id, title, genre, publishing_date, author, rating } = props.book
 
     return(
@@ -47,7 +46,7 @@ function BookInfo(props){
                     <Link to={`books/${id}`}>Reviews</Link>
                   </div>
                   <br />
-                    <Button onClick={props.addBook}  id={props.book.id}>{addNewBook ? "Book Added" : "Add Book to Library"}</Button>  
+                    <Button onClick={clickNewBook}  id={props.book.id}>{addNewBook ? "Book Added" : "Add To Library"}</Button>  
               </Card.Description> 
             </Card.Content>
       </Card>
