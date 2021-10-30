@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+
+.description{
+  font-family: cursive;
+  text-align: center;
+}
+
+.buttonPosition{
+  text-align:center;
+}
+
+.cardPosition{
+  text-align: center;
+  margin: 70px 560px;
+}
+
+.h1 {
+  font-family: cursive;
+  text-align: center;
+  color: #6f7c86;
+  font-size: 35pt;
+}
+
+p{
+  text-align: center;
+  font-family: cursive;
+  font-size: 15pt;
+}
+
+.searchBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
