@@ -1,19 +1,37 @@
 import React from 'react'
+import { useHistory } from 'react-router'
+
 import {
   Container,
   Dropdown,
   Menu
 } from 'semantic-ui-react'
 
-const FixedMenuLayout = () => (
-  <div>
+function DisplayMenu({ setUser }) { 
+
+  const history = useHistory()
+
+  const clickLogout = () => {
+    fetch(`/logout`, {
+      method: 'DELETE',
+      credentials: 'include'
+    })
+      .then(response => {
+        if (response.ok) {
+          setUser = null
+          history.push('/home')
+        }
+      })
+  }
+  
+  return(
+    <div>
     <Menu fixed='top' style={{backgroundColor: "lavender"}}>
       <Container>
         <Menu.Item as='a' header>
           Simply Books
         </Menu.Item>
-        <Menu.Item a href="http://localhost:4000/home">Home</Menu.Item>
-
+      
         <Dropdown item simple text='Options'>
           <Dropdown.Menu>
             <Dropdown.Item a="true" href="http://localhost:4000/books">Featured Books</Dropdown.Item>
@@ -21,11 +39,15 @@ const FixedMenuLayout = () => (
             <Dropdown.Item a="true" href="http://localhost:4000/mylibrary">Personal Library</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
+
+        <Menu.Item onClick={clickLogout}>Logout</Menu.Item>
       </Container>
     </Menu>
-
    
   </div>
-)
+  )
 
-export default FixedMenuLayout
+}
+  
+
+export default DisplayMenu

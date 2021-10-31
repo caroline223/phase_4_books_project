@@ -17,7 +17,7 @@ const HomePage = () => {
         <div>
             <div>
                 <br />
-                <div >
+                <div class="h1">
                     Simply Books
                 </div>
                 <br /> <br /> <br /> <br /> <br />
@@ -27,7 +27,7 @@ const HomePage = () => {
                     <p>as well as upload your own personal library!</p>
                 </div>
                 <br /><br />
-                <div>
+                <div className="cardPosition">
                     <Card style={layout.card} color='olive'>
                         <Image src={bookPhoto[Math.floor(Math.random()*bookPhoto.length)]} width="300" height="200" />
                             <Card.Content>
