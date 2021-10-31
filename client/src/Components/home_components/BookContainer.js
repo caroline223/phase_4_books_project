@@ -40,7 +40,7 @@ function BookContainer(){
 
    
     const bookDisplay = () =>  books.map((book) => <BookInfo key={book.id} book={book} deleteBook={deleteBook} addBook={addBook}  />)
-    const filteredBookDisplay = () => filteredBooks.map((book) => <BookInfo key={book.id} book={book} deleteBook={deleteBook} addBook={addBook} />)
+    const filteredBookDisplay = () => filteredBooks.map((book) => <BookInfo key={book.id} book={book} deleteBook={deleteBook} addBook={addBook}  />)
 
 
      
@@ -62,7 +62,7 @@ function BookContainer(){
             <br /><br /><br /><br />
             <div className="h1">Featured Books</div> 
             <br /><br />
-            <BookSearch searchBooks={searchBooks} />
+            <BookSearch searchBooks={searchBooks}  />
             <br /><br />
             <Card.Group itemsPerRow={4}>
                 {filteredBooks.length > 0 ? filteredBookDisplay(): bookDisplay()}
