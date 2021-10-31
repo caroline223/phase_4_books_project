@@ -1,28 +1,78 @@
-import React from 'react'
-import { Button, Form, Message } from 'semantic-ui-react'
+import React, { useState } from 'react'
+import { Button, Form } from 'semantic-ui-react'
 
-const SignUpForm = () => (
-    <div>
+function SignUpForm({onLogin}){
+
+    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [passwordConfirmation, setPasswordConfirmation] = useState("")
+
+    const handleSubmit = (event) => {
+        alert("Your form has been submitted. Please return to login page.")
+        event.preventDefault()
+        fetch("/signup", {
+            method: "POST",
+            headers: {
+                "Content-type" : "application/json"
+            },
+            body: JSON.stringify({
+                username, 
+                password,
+                email,
+                password_confirmation: passwordConfirmation
+            })
+        })
+        .then((response) => {
+            if (response.ok){
+                response.json()
+                .then((user) => onLogin = user )
+            }
+        })
+
+    }
+
+    return(
+     <div>
         <br />
-        <h1>Create An Account</h1>
-    <Form success>
-        <Form.Input label='First Name' placeholder='first name' />
-        <Form.Input label='Last Name' placeholder='last name' />
-        <Form.Input label='Email' placeholder='joe@schmoe.com' />
-        <Form.Input label='Username' placeholder='username' />
-        <Form.Input label='Password' type='password' />
-        <Form.Input label='Confirm password' type='password' />
+        <div className="h1">Create An Account</div>
+        <Form onSubmit={handleSubmit}>
+            
+            <Form.Input label='Email' 
+                        placeholder='joe@schmoe.com' 
+                        type="text"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        />
+            <Form.Input label='Create Username' 
+                        placeholder='username' 
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        />
+            <Form.Input label='Create Password' 
+                        type='password' 
+                        id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        />
+            <Form.Input label='Confirm Password' 
+                        type='password' 
+                        id="password_confirmation"
+                        value={passwordConfirmation}
+                        onChange={(e) => setPasswordConfirmation(e.target.value)}
+                        />
+        
 
-        <Message
-            success
-            header='Form Completed'
-            content="You're all signed up! Please return to the login page to access your new account."
-        />   
-    <Button>Submit</Button>
-  </Form>
-  </div>
+        
+            <div className="buttonPosition"> 
+            <Button>Submit</Button>
+            <Button a href="http://localhost:4000/login">Back</Button>
+            </div>
+        </Form>
+    </div>
+    )
 
-
-)
+}
 
 export default SignUpForm
