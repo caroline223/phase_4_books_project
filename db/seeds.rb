@@ -33,7 +33,9 @@ end
 
     end
 
-     User.create(user_name: "Caroline", password: "chocolate")
+     User.create(username: "Caroline", password: "chocolate", email: "caroline22@email.com")
+     User.create(username: "Jessica", password: "vanilla", email: "jessica43@email.com")
+     User.create(username: "Ricardo", password: "basketball", email: "ricardojones@email.com")
 
      3.times do 
        book = Book.all.sample 
