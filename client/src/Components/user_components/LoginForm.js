@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router'
+import { Redirect, useHistory } from 'react-router-dom'
+
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 
-function LoginForm({ setCurrentUser }) {
+function LoginForm({ setUser }) {
 
   const history = useHistory()
+  
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
 
@@ -20,8 +22,10 @@ function LoginForm({ setCurrentUser }) {
       .then(response => {
         if (response.ok) {
           response.json()
-          .then(user => setCurrentUser = user)
-          history.push('/books')
+          .then(user => {
+            setUser(user)
+            history.push('/books')
+          })
         } 
       })
   }
@@ -34,6 +38,7 @@ function LoginForm({ setCurrentUser }) {
       <Header as='h2' color='purple' textAlign='center'>
        Log-in to your account
       </Header>
+      {/* <Redirect to="/login" /> */}
       <Form size='large' onSubmit={handleSubmit}>
         <Segment stacked>
           <Form.Input 
@@ -60,13 +65,13 @@ function LoginForm({ setCurrentUser }) {
             Login
           </Button>
           <br />
-          <Button a href="http://localhost:4000/home" fluid size='large'>
+          <Button a href="" fluid size='large'>
             Home
           </Button>
         </Segment>
       </Form>
       <Message>
-        New to us? <a href='http://localhost:4000/signup'>Sign Up</a>
+        New to us? <a href=''>Sign Up</a>
       </Message>
     </Grid.Column>
   </Grid>

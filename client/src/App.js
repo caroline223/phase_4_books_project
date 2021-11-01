@@ -1,32 +1,44 @@
-import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import BookContainer from './Components/home_components/BookContainer';
-import BookReviewsContainer from './Components/home_components/BookReviewsContainer';
-import AuthorContainer from './Components/author_components/AuthorContainer';
-import Author from './Components/home_components/Author'
-import AuthorBooksContainer from './Components/author_components/AuthorBooksContainer';
-import LoginForm from './Components/user_components/LoginForm';
-import SignUpForm from './Components/user_components/SignUpForm';
-import HomePage from './Components/HomePage';
-import PersonalBookContainer from './Components/user_components/personal_library_components/PersonalBookContainer';
-
+import React, { useState, useEffect } from 'react'
+import AuthorizedUser from './AuthorizedUser'
+import UnauthorizedUser from './UnauthorizedUser'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 function App() {
+  const [user, setUser] = useState(null)
+  const [authChecked, setAuthChecked] = useState(false)
+
+  useEffect(() => {
+    fetch('/me', {
+      credentials: 'include'
+    })
+      .then(response => {
+        if (response.ok) {
+          response.json().then((user) => {
+            setUser(user)
+            setAuthChecked(true)
+          })
+        } else {
+          setAuthChecked(true)
+        }
+      })
+  }, [])
+
+  if(!authChecked) {return <div></div>}
   return (
-   <Router>
-     <Switch>
-       <Route exact path ="/home" component={HomePage} />
-       <Route exact path="/books" component={BookContainer} />
-       <Route exact path="/authors" component={AuthorContainer} />
-       <Route exact path="/authors/:id" component={Author} />
-       <Route exact path="/books/:id" component={BookReviewsContainer} />
-       <Route exact path="/authors/books/:id" component={AuthorBooksContainer} />
-       <Route exact path="/login" component={LoginForm} />
-       <Route exact path ="/signup" component={SignUpForm} />
-       <Route exact path ="/mylibrary" component={PersonalBookContainer} />
-     </Switch>
-   </Router>
-  );
+    <Router>
+      {user ? (
+          <AuthorizedUser
+            setUser={setUser}
+            user={user}
+          />
+        ) : (
+          <UnauthorizedUser
+            setUser={setUser}
+          />
+        )
+      }
+    </Router>
+  )
 }
 
-export default App;
+export default App

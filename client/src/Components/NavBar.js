@@ -20,6 +20,7 @@ function DisplayMenu({ setUser }) {
         if (response.ok) {
           setUser = null
           history.push('/home')
+         
         }
       })
   }
