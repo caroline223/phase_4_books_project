@@ -17,6 +17,7 @@ function BookContainer(){
         fetch('http://localhost:3000/books')
         .then((response) => response.json())
         .then((data) => setBooks(data))
+        
     }, [])
 
 
@@ -38,6 +39,9 @@ function BookContainer(){
        setBooks(newBooks)
     }
 
+    // const b = books.data || []
+    // const f = filteredBooks.data || []
+  
    
     const bookDisplay = () =>  books.map((book) => <BookInfo key={book.id} book={book} deleteBook={deleteBook} addBook={addBook}  />)
     const filteredBookDisplay = () => filteredBooks.map((book) => <BookInfo key={book.id} book={book} deleteBook={deleteBook} addBook={addBook}  />)
