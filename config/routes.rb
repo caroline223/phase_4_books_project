@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :authors, only: [:index, :show]
-  resources :user_books, only: [:index, :update, :destroy]
+  resources :user_books, only: [:index, :update, :destroy, :show]
   
   resources :books do 
     resources :user_books, only: [:create]
@@ -13,6 +13,12 @@ Rails.application.routes.draw do
   
 
   get "authors/books/:id", to: "authors#author_books"
+
+  get "/me", to: "users#show"
+  post "/signup", to: "users#create"
+  
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
   
  
   # Routing logic: fallback requests for React Router.
