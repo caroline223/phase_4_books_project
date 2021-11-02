@@ -13,7 +13,7 @@ function PersonalBookContainer(){
     
     
     useEffect(() => {
-        fetch('http://localhost:3000/user_books')
+        fetch('/user_books')
         .then((response) => response.json())
         .then((data) => setUserBooks(data))
     }, [])

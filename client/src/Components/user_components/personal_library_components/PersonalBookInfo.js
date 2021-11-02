@@ -10,14 +10,14 @@ function PersonalBookInfo(props){
     const layout = {
         card : {
             opacity: "0.8",
-            borderRadius: "40px"
+            borderRadius: "20px"
         }
     }
 
     const removeBook = (event) => {
       const id = parseInt(event.target.id)
      if(window.confirm("Are you sure?"))
-     fetch(`http://localhost:3000/user_books/${id}`, {
+     fetch(`/user_books/${id}`, {
          method: 'DELETE'
      })
     .then(() => { props.deleteBook(id) })
@@ -26,7 +26,7 @@ function PersonalBookInfo(props){
 
     const readBook = (event) => {
       const id = parseInt(event.target.id)
-      fetch(`http://localhost:3000/user_books/${id}`, {
+      fetch(`/user_books/${id}`, {
           method: 'PATCH',
           headers: {
           "Content-type": "application/json"
@@ -39,7 +39,7 @@ function PersonalBookInfo(props){
 
   const recommendBook = (event) => {
     const id = parseInt(event.target.id)
-    fetch(`http://localhost:3000/user_books/${id}`, {
+    fetch(`/user_books/${id}`, {
         method: 'PATCH',
         headers: {
         "Content-type": "application/json"
@@ -54,7 +54,7 @@ function PersonalBookInfo(props){
    
     return(
         <Card style={layout.card} color='olive'>
-        <Image src={bookPhoto[Math.floor(Math.random()*bookPhoto.length)]} width="300" height="200"/> 
+        <Image src={bookPhoto[Math.floor(Math.random()*bookPhoto.length)]} width="350" height="175"/> 
           <Card.Content className="description">
               <header>
               {title} 
