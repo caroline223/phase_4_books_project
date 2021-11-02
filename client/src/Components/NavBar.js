@@ -7,20 +7,19 @@ import {
   Menu
 } from 'semantic-ui-react'
 
-function DisplayMenu({ setUser }) { 
+function NavBar({ setUser }) { 
 
   const history = useHistory()
 
   const clickLogout = () => {
-    fetch(`/logout`, {
+    fetch('/logout', {
       method: 'DELETE',
       credentials: 'include'
     })
-      .then(response => {
+      .then((response) => {
         if (response.ok) {
-          setUser = null
-          history.push('/home')
-         
+          setUser(null) 
+          history.push('/')
         }
       })
   }
@@ -32,12 +31,12 @@ function DisplayMenu({ setUser }) {
         <Menu.Item as='a' header>
           Simply Books
         </Menu.Item>
-      
+        
         <Dropdown item simple text='Options'>
           <Dropdown.Menu>
-            <Dropdown.Item a="true" href="http://localhost:4000/books">Featured Books</Dropdown.Item>
-            <Dropdown.Item a="true" href="http://localhost:4000/authors">Featured Authors</Dropdown.Item>
-            <Dropdown.Item a="true" href="http://localhost:4000/mylibrary">Personal Library</Dropdown.Item>
+            <Dropdown.Item a="true" href="/books">Featured Books</Dropdown.Item>
+            <Dropdown.Item a="true" href="/authors">Featured Authors</Dropdown.Item>
+            <Dropdown.Item a="true" href="/mylibrary">Personal Library</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
 
@@ -51,4 +50,4 @@ function DisplayMenu({ setUser }) {
 }
   
 
-export default DisplayMenu
+export default NavBar
