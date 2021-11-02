@@ -34,7 +34,7 @@ class UserBooksController < ApplicationController
     end
 
     def user_book_params
-        params.permit(:id, :read, :consider, :book_id, :user_id)
+        params.require(:user_book).permit(:id, :read, :consider, :book_id, :user_id)
     end
 
     private

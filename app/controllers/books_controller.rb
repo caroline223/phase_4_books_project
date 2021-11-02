@@ -3,6 +3,7 @@ class BooksController < ApplicationController
     def index
         books = Book.all
         render json: books, status: :created
+        
     end
 
     def show 
@@ -13,17 +14,12 @@ class BooksController < ApplicationController
     private
 
     def find_book
-        Book.find(params[:id])
+        book = Book.find(params[:id])
     end
 
     def book_params
         params.require(:book).permit(:title, :author_id, :genre, :rating, :image_url)
     end
-
-
-
-    
-
-    
+  
 
 end
