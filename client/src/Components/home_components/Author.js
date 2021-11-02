@@ -6,15 +6,15 @@ import NavBar from '../NavBar'
 
 
 
-function Author(props) {
+function Author() {
 
     const [author, setAuthor] = useState([])
     
     useEffect(() => {
-        fetch(`http://localhost:3000/authors/${props.match.params.id}`)
+        fetch(``)
         .then((response) => response.json())
         .then((data) => setAuthor(data))
-    }, [props.match.params.id])
+    }, [])
 
     function displayInfo() {
         const layout = {

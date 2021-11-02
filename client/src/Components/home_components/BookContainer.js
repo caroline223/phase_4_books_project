@@ -5,7 +5,7 @@ import NavBar from '../NavBar'
 import BookSearch from './BookSearch'
 
 
-function BookContainer(){
+function BookContainer({setUser}){
 
     const [books, setBooks] = useState([])
     const [filteredBooks, setFilteredBooks] = useState([])
@@ -14,7 +14,7 @@ function BookContainer(){
     
     
     useEffect(() => {
-        fetch('http://localhost:3000/books')
+        fetch('/books')
         .then((response) => response.json())
         .then((data) => setBooks(data))
         
@@ -39,10 +39,6 @@ function BookContainer(){
        setBooks(newBooks)
     }
 
-    // const b = books.data || []
-    // const f = filteredBooks.data || []
-  
-   
     const bookDisplay = () =>  books.map((book) => <BookInfo key={book.id} book={book} deleteBook={deleteBook} addBook={addBook}  />)
     const filteredBookDisplay = () => filteredBooks.map((book) => <BookInfo key={book.id} book={book} deleteBook={deleteBook} addBook={addBook}  />)
 
@@ -51,7 +47,7 @@ function BookContainer(){
 
     const addBook = (event) => {
         const id = parseInt(event.target.id)
-        fetch(`http://localhost:3000/books/${id}/user_books`, {
+        fetch(`/books/${id}/user_books`, {
             method: "POST",
         })
         .then((response) => response.json())
@@ -62,7 +58,7 @@ function BookContainer(){
   
    return(
        <div>
-            <NavBar />
+            <NavBar setUser={setUser} />
             <br /><br /><br /><br />
             <div className="h1">Featured Books</div> 
             <br /><br />

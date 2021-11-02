@@ -12,7 +12,7 @@ function BookInfo(props){
     const layout = {
         card : {
             opacity: "0.8",
-            borderRadius: "40px"
+            borderRadius: "20px"
         }
     }
 
@@ -25,7 +25,7 @@ function BookInfo(props){
 
     return(
         <Card style={layout.card} color='olive' >
-        <Image src={bookPhoto[Math.floor(Math.random()*bookPhoto.length)]} width="300" height="200"/> 
+        <Image src={bookPhoto[Math.floor(Math.random()*bookPhoto.length)]} width="350" height="175"/> 
           <Card.Content className="description">
               <header>
               {title} 

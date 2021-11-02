@@ -4,17 +4,17 @@ import NavBar from '../NavBar'
 import { Card, Button } from 'semantic-ui-react'
 
 
-function BookReviewsContainer({ match }) {
+function BookReviewsContainer() {
 
     const [data, setData] = useState([])
     
     useEffect(() => {
 
-        fetch(`http://localhost:3000/books/${match.params.id}`)
+        fetch(``)
         .then((response) => response.json())
         .then((data) => setData(data.book_reviews))
 
-    }, [match.params.id])
+    }, [])
 
     const reviewsDisplay = () => data.map((d) => <BookReviewsInfo key={d.id} data={d} />)
 
