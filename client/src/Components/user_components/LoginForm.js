@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Redirect, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 
@@ -65,13 +65,13 @@ function LoginForm({ setUser }) {
             Login
           </Button>
           <br />
-          <Button a href="" fluid size='large'>
+          <Button a href="/" fluid size='large'>
             Home
           </Button>
         </Segment>
       </Form>
       <Message>
-        New to us? <a href=''>Sign Up</a>
+        New to us? <a href='/signup'>Sign Up</a>
       </Message>
     </Grid.Column>
   </Grid>

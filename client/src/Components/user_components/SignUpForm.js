@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Form } from 'semantic-ui-react'
 
-function SignUpForm({onLogin}){
+function SignUpForm({ onLogin }){
 
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
@@ -9,7 +9,7 @@ function SignUpForm({onLogin}){
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
 
     const handleSubmit = (event) => {
-        alert("Your form has been submitted. Please return to login page.")
+        alert("Your form has been submitted. Please return to the login page.")
         event.preventDefault()
         fetch("/signup", {
             method: "POST",
@@ -67,7 +67,7 @@ function SignUpForm({onLogin}){
         
             <div className="buttonPosition"> 
             <Button>Submit</Button>
-            <Button a href="http://localhost:4000/login">Back</Button>
+            <Button a href="/login">Back</Button>
             </div>
         </Form>
     </div>
