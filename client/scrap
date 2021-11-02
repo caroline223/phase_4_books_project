@@ -1,20 +1,3 @@
-# const handleSearchInput = (event) => {
-#         setSearchInput(
-#             {searchInput: event.target.value}
-#         )
-
-#         if(event.target.value === '' ) {
-#             setBooks(books)
-#         } else {
-#             setBooks(filterSearchByInput(event.target.value))
-#         }
-#     }
-
-#     const filterSearchByInput = (input) => {
-#         console.log(input)
-#         books.filter((book) => book.genre.toLowerCase().includes(input.toLowerCase())) 
-
-#     }
 
 # rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 #   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_error
@@ -28,34 +11,6 @@
 #   end
 
 
-
-# def index 
-#     personal_books = PersonalBook.all 
-#     render json: personal_books
-# end
-
-# def create 
-#     personal_book = PersonalBook.create(personal_book_params)
-#     render json: personal_book 
-# end
-
-# def update
-# end
-
-# def destroy
-#     personal_book = find_personal_book
-#     personal_book.destroy 
-# end
-
-# private 
-
-# def find_personal_book
-#     PersonalBook.find(params[:id])
-# end
-
-# def personal_book_params
-#    params.require(:personal_book).permit(:title, :author, :publishing_date, :rating, :review)
-# end
     
 # const [book, setBook] = useState(props.book)
 
@@ -73,3 +28,58 @@
 #    .then(response => response.json())
 #    .then(book => setBook(book))
 # }
+
+
+
+
+
+function App() {
+
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    fetch('/me')
+    .then((response) => {
+      if(response.ok){
+        response.json()
+        .then((user) => setUser(user))
+      }
+    })
+  }, [])
+  
+  
+#   return (
+    
+#     <Switch>
+#              <Route exact path="/home">
+#                 <HomePage setUser={setUser} />
+#             </Route>
+#             <Route exact path="/login">
+#                 <LoginForm setUser={setUser} />
+#             </Route>
+#             <Route exact path="/signup">
+#                 <SignUpForm setUser={setUser} />
+#             </Route>
+#             <Route exact path="/books">
+#                 <BookContainer user={user} />
+#             </Route>
+#             <Route exact path="/authors">
+#                 <AuthorContainer user={user} />
+#             </Route>
+#             <Route exact path="/authors/:id">
+#                 <Author user={user} />
+#             </Route>
+#             <Route exact path="/books/:id">
+#                 <BookReviewsContainer user={user} />
+#             </Route>
+#             <Route exact path="/authors/books/:id">
+#                 <AuthorBooksContainer user={user} />
+#             </Route>
+#             <Route exact path="/mylibrary">
+#                 <PersonalBookContainer  />
+#             </Route>
+#         </Switch>
+#   )
+# }
+
+# export default App;
