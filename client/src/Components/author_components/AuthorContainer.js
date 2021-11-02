@@ -3,13 +3,13 @@ import { Card } from 'semantic-ui-react'
 import AuthorInfo from './AuthorInfo'
 import NavBar from '../NavBar'
 
-function AuthorContainer(){
+function AuthorContainer({setUser}){
 
     const [authors, setAuthors] = useState([])
     
 
     useEffect(() => {
-        fetch('http://localhost:3000/authors')
+        fetch('/authors')
         .then((response) => response.json())
         .then((data) => setAuthors(data))
     }, [])
@@ -20,7 +20,7 @@ function AuthorContainer(){
    return(
        <div>
            <br /><br /><br /><br />
-           <NavBar />
+           <NavBar setUser={setUser} />
           <div className="h1">Featured Authors</div> 
           <br /><br /><br />
          <Card.Group itemsPerRow={5}>

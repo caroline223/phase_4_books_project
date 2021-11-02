@@ -5,15 +5,15 @@ import NavBar from '../NavBar'
 
 
 
-function AuthorBooksContainer({ match }) {
+function AuthorBooksContainer() {
 
     const [data, setData] = useState([])
    
     useEffect(() => {
-        fetch(`http://localhost:3000/authors/books/${match.params.id}`)
+        fetch(``)
         .then((response) => response.json())
         .then((data) => setData(data))
-    }, [match.params.id])
+    }, [])
 
 
     const booksDisplay = () => data.map((d) => <AuthorBooksInfo key={d.id} data={d} />)

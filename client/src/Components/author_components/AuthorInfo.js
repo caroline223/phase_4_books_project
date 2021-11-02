@@ -35,7 +35,7 @@ function AuthorInfo(props) {
                   <div>
                     Degree Earned: {degree}
                   </div>
-                  <Link to={`authors/books/${id}`}>Books Published</Link>
+                  <Link to={`/authors/books/${id}`}>Books Published</Link>
                   <br />  
               </Card.Description>    
             </Card.Content>
