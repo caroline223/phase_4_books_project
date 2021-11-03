@@ -5,7 +5,7 @@ import BookReviewsContainer from './Components/home_components/BookReviewsContai
 import AuthorContainer from './Components/author_components/AuthorContainer';
 import Author from './Components/home_components/Author'
 import AuthorBooksContainer from './Components/author_components/AuthorBooksContainer';
-import PersonalBookContainer from './Components/user_components/personal_library_components/PersonalBookContainer';
+import PersonalBookContainer from './Components/user_components/personal_library_components/PersonalBookContainer'
 
 function AuthorizedUser({ setUser }){
 
