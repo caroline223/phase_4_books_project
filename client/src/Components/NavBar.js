@@ -19,7 +19,7 @@ function NavBar({ setUser }) {
       .then((response) => {
         if (response.ok) {
           setUser(null) 
-          history.push('/')
+          history.push('/logout')
         }
       })
   }
