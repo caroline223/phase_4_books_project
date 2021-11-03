@@ -26,7 +26,7 @@ function AuthorBooksContainer() {
                 <div className="h1">Author's Writing Collection</div> 
                 <br /><br /><br /><br />
                 <div>
-                <Card.Group >
+                <Card.Group itemsPerRow={3}>
                     {data.length > 0 && booksDisplay()}
                 </Card.Group>
                 </div>
