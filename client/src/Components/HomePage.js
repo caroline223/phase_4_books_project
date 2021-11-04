@@ -23,7 +23,7 @@ const HomePage = () => {
                 <br /> <br /> <br /> <br /> <br />
                 <div>
                     <p>Book Enthusiasts! Welcome your very own, highly personalized library app!</p>
-                    <p>Click on the link below to either view our recommendation of some entertaining books,</p>
+                    <p>Click on the link below to view our recommendation of some entertaining books,</p>
                     <p>as well as upload your own personal library!</p>
                 </div>
                 <br /><br />
