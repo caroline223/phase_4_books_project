@@ -2,13 +2,13 @@ class AuthorsController < ApplicationController
 
     def index 
         authors = Author.all 
-        render json: authors 
+        render json: authors, status: :ok 
     end
 
     
     def show 
         author = find_author 
-        render json: author
+        render json: author, status: :ok
     end
 
     def author_books
@@ -22,7 +22,7 @@ class AuthorsController < ApplicationController
             }
             
         end
-        render json: author_books
+        render json: author_books, status: :ok
     end
 
     

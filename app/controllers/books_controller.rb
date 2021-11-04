@@ -2,13 +2,13 @@ class BooksController < ApplicationController
 
     def index
         books = Book.all
-        render json: books, status: :created
+        render json: books, status: :ok
         
     end
 
     def show 
         book = find_book
-        render json: book
+        render json: book, status: :ok
     end
 
     private
