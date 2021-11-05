@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import BookInfo from './BookInfo'
 import { Card } from "semantic-ui-react"
-import NavBar from '../NavBar'
+import NavBar from '../../NavBar'
 import BookSearch from './BookSearch'
 
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import bookPhoto from './home_components/BookPhoto'
+import bookPhoto from './authorized_user_components/book_components/BookPhoto'
 
 
 const HomePage = () => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PersonalBookInfo from './PersonalBookInfo'
 import { Card, Button } from 'semantic-ui-react'
-import BookSearch from '../../home_components/BookSearch'
+import BookSearch from '../book_components/BookSearch'
 
 
 function PersonalBookContainer(){

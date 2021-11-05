@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Image, Button } from 'semantic-ui-react'
 import authorPhoto from '../author_components/AuthorPhoto'
-import NavBar from '../NavBar'
+import NavBar from '../../NavBar'
 
 
 

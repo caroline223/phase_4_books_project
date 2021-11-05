@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Card, Image, Button } from 'semantic-ui-react'
-import bookPhoto from '../../home_components/BookPhoto'
+import bookPhoto from '../book_components/BookPhoto'
 
 
 function PersonalBookInfo(props){
