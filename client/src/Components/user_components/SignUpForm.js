@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
 import { Button, Form } from 'semantic-ui-react'
+import { useHistory } from 'react-router-dom'
 
-function SignUpForm({ onLogin }){
+function SignUpForm({ setUser }){
 
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
+    const history = useHistory()
 
     const handleSubmit = (event) => {
         alert("Your form has been submitted. Please return to the login page.")
         event.preventDefault()
-        fetch("/signup", {
-            method: "POST",
+        fetch('/signup', {
+            method: 'POST',
             headers: {
                 "Content-type" : "application/json"
             },
@@ -23,12 +25,15 @@ function SignUpForm({ onLogin }){
                 password_confirmation: passwordConfirmation
             })
         })
-        .then((response) => {
-            if (response.ok){
-                response.json()
-                .then((user) => onLogin = user )
-            }
-        })
+        .then(response => {
+            if (response.ok) {
+              response.json()
+              .then(user => {
+                setUser(user)
+                history.push('/login')
+              })
+            } 
+          })
 
     }
 
