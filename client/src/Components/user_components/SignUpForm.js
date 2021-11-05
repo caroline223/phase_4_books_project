@@ -11,7 +11,7 @@ function SignUpForm({ setUser }){
     const history = useHistory()
 
     const handleSubmit = (event) => {
-        alert("Your form has been submitted. Please return to the login page.")
+        alert("Your form has been submitted. Please proceed into your library.")
         event.preventDefault()
         fetch('/signup', {
             method: 'POST',
@@ -30,7 +30,7 @@ function SignUpForm({ setUser }){
               response.json()
               .then(user => {
                 setUser(user)
-                history.push('/login')
+                history.push('/books')
               })
             } 
           })
