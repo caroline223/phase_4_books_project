@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
-import LoginForm from '../src/Components/user_components/LoginForm'
-import SignUpForm from '../src/Components/user_components/SignUpForm'
+import LoginForm from '../src/Components/unauthorized_user_components/LoginForm'
+import SignUpForm from '../src/Components/unauthorized_user_components/SignUpForm'
 import HomePage from '../src/Components/HomePage'
 import LogoutPage from './Components/LogoutPage'
 
