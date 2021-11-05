@@ -12,4 +12,19 @@ As a user, once creating an account, you can do the following:
 6. Ability to rate selected books of your library
 7. And much more!
 
-##To get started, you need to do the following: 
+## To get started, you need to do the following: 
+
+In your terminal, you need to perform the following commands:
+$ git clone 
+$ cd clone 
+$ code .
+
+## Frontend:
+$ npm start --prefix client: run the frontend on http://localhost:4000
+
+## Backend:
+$ rails s: run the backend on http://localhost:3000
+
+Enjoy and read plenty!
+
+
