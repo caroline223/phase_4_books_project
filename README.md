@@ -15,8 +15,11 @@ As a user, once creating an account, you can do the following:
 ## To get started, you need to do the following: 
 
 In your terminal, you need to perform the following commands:
-$ git clone 
-$ cd clone 
+<br />
+$ git clone git@github.com:caroline223/phase_4_books_project.git
+<br />
+$ cd clone git@github.com:caroline223/phase_4_books_project.git
+<br />
 $ code .
 
 ## Frontend:
