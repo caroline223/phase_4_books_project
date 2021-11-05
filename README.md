@@ -1,6 +1,6 @@
 # Simply Books
 
-<img alt="Screen Shot 2021-11-05 at 12 30 22 AM" src="https://user-images.githubusercontent.com/67647836/140459014-902a9aed-e0c2-4fe7-a653-0d37ae131158.png" height="400" width="300" /> 
+<img alt="Screen Shot 2021-11-05 at 12 30 22 AM" src="https://user-images.githubusercontent.com/67647836/140459014-902a9aed-e0c2-4fe7-a653-0d37ae131158.png" height="400" width="450" /> 
 
 ## Welcome to your highly personalized library app!
 As a user, once creating an account, you can do the following:
