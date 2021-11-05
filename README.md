@@ -18,7 +18,7 @@ In your terminal, you need to perform the following commands:
 <br />
 $ git clone git@github.com:caroline223/phase_4_books_project.git
 <br />
-$ cd clone git@github.com:caroline223/phase_4_books_project.git
+$ cd git@github.com:caroline223/phase_4_books_project.git
 <br />
 $ code .
 
