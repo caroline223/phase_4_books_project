@@ -7,7 +7,7 @@ class UserBooksController < ApplicationController
     end
     
     def create 
-        @current_user.user_books.create(book_id: params[:book_id])
+        @current_user.user_books.create!(book_id: params[:book_id])
     end
 
     def show
@@ -17,7 +17,7 @@ class UserBooksController < ApplicationController
 
     def update
         user_book = find_user_book
-        user_book.update(user_book_params)
+        user_book.update!(user_book_params)
         render json: user_book, status: :ok
     end
 
