@@ -15,7 +15,7 @@ function AuthorContainer({setUser}){
     }, [])
 
     
-    const authorDisplay = authors.map((author) => <AuthorInfo key={author.id} authors={author} />)
+    const authorDisplay = () => authors.map((author) => <AuthorInfo key={author.id} authors={author} />)
 
    return(
        <div>
@@ -24,7 +24,7 @@ function AuthorContainer({setUser}){
           <div className="h1">Featured Authors</div> 
           <br /><br /><br />
          <Card.Group itemsPerRow={5}>
-             {authorDisplay}
+             {authorDisplay()}
          </Card.Group>
        </div>
    )
