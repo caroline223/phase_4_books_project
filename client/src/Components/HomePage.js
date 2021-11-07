@@ -17,7 +17,7 @@ const HomePage = () => {
         <div>
             <div>
                 <br />
-                <div class="h1">
+                <div className="h1">
                     Simply Books
                 </div>
                 <br /> <br /> <br /> <br /> <br />
