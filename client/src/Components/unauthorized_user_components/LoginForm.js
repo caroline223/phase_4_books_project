@@ -65,7 +65,7 @@ function LoginForm({ setUser }) {
             Login
           </Button>
           <br />
-          <Button a href="/" fluid size='large'>
+          <Button href="/" fluid size='large'>
             Home
           </Button>
         </Segment>

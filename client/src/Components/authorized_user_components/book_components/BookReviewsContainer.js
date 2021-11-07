@@ -28,7 +28,7 @@ function BookReviewsContainer() {
              {data.length > 0 && reviewsDisplay()}
          </Card.Group>
          <div className="buttonPosition">
-             <Button a href="/books">Back</Button>
+             <Button href="/books">Back</Button>
          </div>
        </div>
    )

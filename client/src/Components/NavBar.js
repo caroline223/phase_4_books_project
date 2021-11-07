@@ -12,7 +12,7 @@ function NavBar({ setUser }) {
   const history = useHistory()
 
   const clickLogout = () => {
-    fetch('/logout', {
+    fetch(`/logout`, {
       method: 'DELETE',
       credentials: 'include'
     })
@@ -34,9 +34,9 @@ function NavBar({ setUser }) {
         
         <Dropdown item simple text='Options'>
           <Dropdown.Menu>
-            <Dropdown.Item a="true" href="/books">Featured Books</Dropdown.Item>
-            <Dropdown.Item a="true" href="/authors">Featured Authors</Dropdown.Item>
-            <Dropdown.Item a="true" href="/mylibrary">Personal Library</Dropdown.Item>
+            <Dropdown.Item  href="/books">Featured Books</Dropdown.Item>
+            <Dropdown.Item  href="/authors">Featured Authors</Dropdown.Item>
+            <Dropdown.Item  href="/mylibrary">Personal Library</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
 
