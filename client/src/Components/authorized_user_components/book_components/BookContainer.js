@@ -17,7 +17,6 @@ function BookContainer({setUser}){
         fetch('/books')
         .then((response) => response.json())
         .then((data) => setBooks(data))
-        
     }, [])
 
 
@@ -33,17 +32,11 @@ function BookContainer({setUser}){
     }
 
     
-    const deleteBook = (id) => {
-        console.log(id)
-        const newBooks = books.filter(b => b.id !== id)
-       setBooks(newBooks)
-    }
-
-    const bookDisplay = () =>  books.map((book) => <BookInfo key={book.id} book={book} deleteBook={deleteBook} addBook={addBook}  />)
-    const filteredBookDisplay = () => filteredBooks.map((book) => <BookInfo key={book.id} book={book} deleteBook={deleteBook} addBook={addBook}  />)
+   
+    const bookDisplay = () =>  books.map((book) => <BookInfo key={book.id} book={book}  addBook={addBook}   />)
+    const filteredBookDisplay = () => filteredBooks.map((book) => <BookInfo key={book.id} book={book}  addBook={addBook}  />)
 
 
-     
 
     const addBook = (event) => {
         const id = parseInt(event.target.id)
@@ -51,11 +44,8 @@ function BookContainer({setUser}){
             method: "POST",
         })
         .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then(data => console.log(data));
     }
-
-    
-  
    return(
        <div>
             <NavBar setUser={setUser} />
@@ -64,7 +54,7 @@ function BookContainer({setUser}){
             <br /><br />
             <BookSearch searchBooks={searchBooks}  />
             <br /><br />
-            <Card.Group itemsPerRow={4}>
+            <Card.Group itemsPerRow={5}>
                 {filteredBooks.length > 0 ? filteredBookDisplay(): bookDisplay()}
             </Card.Group>
        </div>

@@ -6,9 +6,10 @@ import bookPhoto from './BookPhoto'
 
 function BookInfo(props){
 
-    const [addNewBook, setAddNewBook] = useState(false)
+  const [addNewBook, setAddNewBook] = useState(false)
+  const [clicked, setClicked] = useState(false)
 
-
+  
     const layout = {
         card : {
             opacity: "0.8",
@@ -16,12 +17,17 @@ function BookInfo(props){
         }
     }
 
-    const clickNewBook = (id) => {
-      props.addBook(id);
-      setAddNewBook((addNewBook) => !addNewBook)
-    }
+    
 
-    const { id, title, genre, publishing_date, author, rating } = props.book
+  const clickNewBook = (id) => {
+    if(!clicked){
+      setClicked(true)
+      props.addBook(id);
+      setAddNewBook(true)
+    } 
+  }
+    
+    const { id, title, genre, publishing_date, author, rating} = props.book
 
     return(
         <Card style={layout.card} color='olive' >
@@ -48,8 +54,8 @@ function BookInfo(props){
                   <br />
               </Card.Description> 
               <div className="buttonPosition">
-                    <Button onClick={clickNewBook}  id={props.book.id}>{addNewBook ? "Book Added" : "Add To Library"}</Button>  
-                  </div>
+                  <Button onClick={clickNewBook} id={props.book.id}>{addNewBook ? "Book Added" : "Add To Library"}</Button> 
+               </div>
             </Card.Content>
       </Card>
     )
