@@ -1,6 +1,6 @@
 class UserBooksController < ApplicationController
 
-     #before_action :check_authorization
+   
    
     def index
         render json: @current_user.user_books, status: :ok
@@ -37,10 +37,7 @@ class UserBooksController < ApplicationController
         params.require(:user_book).permit(:id, :read, :consider, :book_id, :user_id)
     end
 
-    private
+   
 
-    # def check_authorization
-    #     return render json: {error: "Must be logged in to see this."}, status: :unauthorized unless current_user
-    # end
     
 end

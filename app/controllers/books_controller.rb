@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
 
     def index
+        #coding challenge
+        #books = Book.alphabetical_order
         books = Book.all
         render json: books, status: :ok
         
