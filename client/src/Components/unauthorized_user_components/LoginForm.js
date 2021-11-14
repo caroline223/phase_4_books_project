@@ -9,6 +9,7 @@ function LoginForm({ setUser }) {
   
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [errors, setErrors] = useState([])
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -27,6 +28,12 @@ function LoginForm({ setUser }) {
             history.push('/books')
           })
         } 
+        else {
+          response.json()
+          .then(errors => {
+            setErrors(errors.error)
+          })
+        }
       })
   }
 
@@ -43,6 +50,7 @@ function LoginForm({ setUser }) {
         <Segment stacked>
           <Form.Input 
             fluid 
+            required
             icon='user' 
             iconPosition='left' 
             placeholder='Username'
@@ -52,6 +60,7 @@ function LoginForm({ setUser }) {
             onChange={(e) => setUsername(e.target.value)} />
           <Form.Input
             fluid
+            required
             icon='lock'
             iconPosition='left'
             placeholder='Password'
@@ -73,8 +82,12 @@ function LoginForm({ setUser }) {
       <Message>
         New to us? <a href='/signup'>Sign Up</a>
       </Message>
+      <Message>
+        {errors}
+      </Message>
     </Grid.Column>
   </Grid>
+  
     </div>
   )
 }
