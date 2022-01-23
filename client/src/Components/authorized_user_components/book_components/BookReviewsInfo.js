@@ -6,7 +6,9 @@ function BookReviewsInfo(props) {
     const layout = {
         card : {
             opacity: "0.8",
-            borderRadius: "40px"
+            borderRadius: "40px",
+            padding: "10px",
+            margin: "10px"
         }
     }
 

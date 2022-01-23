@@ -24,9 +24,13 @@ function BookReviewsContainer() {
            <br /> <br /> <br />
           <div className="h1">Reviews</div> 
           <br /> <br /> <br />
-         <Card.Group>
+          
+          <Card.Group  centered  itemsPerRow={3}>
              {data.length > 0 && reviewsDisplay()}
          </Card.Group>
+         
+        
+         <br />
          <div className="buttonPosition">
              <Button href="/books">Back</Button>
          </div>
