@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import LoginForm from '../src/Components/unauthorized_user_components/LoginForm'
 import SignUpForm from '../src/Components/unauthorized_user_components/SignUpForm'
+import AccountDeletionSuccess from './Components/AccountDeletionSuccess'
 import HomePage from '../src/Components/HomePage'
 import LogoutPage from './Components/LogoutPage'
 
@@ -21,6 +22,9 @@ function UnauthorizedUser({ setUser }){
             </Route> 
             <Route exact path="/logout">
                 <LogoutPage setUser={setUser} />
+            </Route> 
+            <Route exact path="/deleted">
+                <AccountDeletionSuccess setUser={setUser} />
             </Route> 
             <Redirect to="/" />
         </Switch>

@@ -6,6 +6,7 @@ import AuthorContainer from './Components/authorized_user_components/author_comp
 import Author from './Components/authorized_user_components/book_components/Author'
 import AuthorBooksContainer from './Components/authorized_user_components/author_components/AuthorBooksContainer';
 import PersonalBookContainer from './Components/authorized_user_components/personal_library_components/PersonalBookContainer'
+import AccountInformation from './Components/authorized_user_components/AccountInformation';
 
 function AuthorizedUser({ setUser }){
 
@@ -28,6 +29,9 @@ function AuthorizedUser({ setUser }){
             </Route>
             <Route exact path="/mylibrary">
                 <PersonalBookContainer setUser={setUser} />
+            </Route>
+            <Route exact path="/users/user-info">
+                <AccountInformation setUser={setUser} />
             </Route>
         </Switch>
     )
