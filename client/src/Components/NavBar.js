@@ -37,6 +37,7 @@ function NavBar({ setUser }) {
             <Dropdown.Item  href="/books">Featured Books</Dropdown.Item>
             <Dropdown.Item  href="/authors">Featured Authors</Dropdown.Item>
             <Dropdown.Item  href="/mylibrary">Personal Library</Dropdown.Item>
+            <Dropdown.Item  href="/users/user-info">Account Information</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
 
