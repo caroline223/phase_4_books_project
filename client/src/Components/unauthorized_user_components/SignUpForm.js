@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Form, Message } from 'semantic-ui-react'
+import { Button, Form, Message, Segment, Grid } from 'semantic-ui-react'
 import { useHistory } from 'react-router-dom'
 
 function SignUpForm({ setUser }){
@@ -49,47 +49,54 @@ function SignUpForm({ setUser }){
      <div>
         <br />
         <div className="h1">Create An Account</div>
-        <Form onSubmit={handleSubmit}>
-            
-            <Form.Input label='Email' 
-                        placeholder='joe@schmoe.com' 
-                        type="text"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        />
-            <Form.Input label='Create Username' 
-                        placeholder='username' 
+        <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+            <Grid.Column style={{ maxWidth: 450 }}>
+            <Form size='large' onSubmit={handleSubmit}>
+                <Segment stacked>
+                <Form.Input 
+                    label="Enter Email Address"
+                    required 
+                    type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />             
+                <Form.Input 
+                        label="Create Username"
                         type="text"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
                         />
-            <Form.Input label='Create Password' 
+                <Form.Input 
+                        label="Create Password"
                         type='password' 
                         id="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
                         />
-            <Form.Input label='Confirm Password' 
+                 <Form.Input label='Confirm Password' 
                         type='password' 
                         id="password_confirmation"
                         value={passwordConfirmation}
                         onChange={(e) => setPasswordConfirmation(e.target.value)}
                         required
                         />
-        
-
-        
-            <div className="buttonPosition"> 
-            <Button>Submit</Button>
-            <Button href="/login">Back</Button>
-            </div>
-        </Form>
-         <Message>
-            {errors}
-        </Message>
+                <Button color='purple' fluid size='large'>
+                    Submit
+                </Button>
+                <br />
+                <Button href="/login" fluid size='large'>
+                    Back
+                </Button>
+                </Segment>
+           
+            <Message>
+                {errors}
+            </Message>
+            </Form>
+            </Grid.Column>
+        </Grid>          
     </div>
     )
 
