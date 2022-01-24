@@ -32,54 +32,100 @@
 
 
 
-
-function App() {
-
-  const [user, setUser] = useState(null)
-
-  useEffect(() => {
-    fetch('/me')
-    .then((response) => {
-      if(response.ok){
-        response.json()
-        .then((user) => setUser(user))
-      }
-    })
-  }, [])
-  
-  
-#   return (
+# def total_books
+#         self.books.size
+#     end
     
-#     <Switch>
-#              <Route exact path="/home">
-#                 <HomePage setUser={setUser} />
-#             </Route>
-#             <Route exact path="/login">
-#                 <LoginForm setUser={setUser} />
-#             </Route>
-#             <Route exact path="/signup">
-#                 <SignUpForm setUser={setUser} />
-#             </Route>
-#             <Route exact path="/books">
-#                 <BookContainer user={user} />
-#             </Route>
-#             <Route exact path="/authors">
-#                 <AuthorContainer user={user} />
-#             </Route>
-#             <Route exact path="/authors/:id">
-#                 <Author user={user} />
-#             </Route>
-#             <Route exact path="/books/:id">
-#                 <BookReviewsContainer user={user} />
-#             </Route>
-#             <Route exact path="/authors/books/:id">
-#                 <AuthorBooksContainer user={user} />
-#             </Route>
-#             <Route exact path="/mylibrary">
-#                 <PersonalBookContainer  />
-#             </Route>
-#         </Switch>
-#   )
-# }
+#     def self.most_books
+#          includes(:books).all.max_by {|author| author.books.length}
+#     end
 
-# export default App;
+#     def self.least_books
+#         includes(:books).all.min_by {|author| author.books.length}
+#     end
+
+#     def rating
+#         self.books.map{|book| book.rating}
+#     end
+
+#     def total_rating
+#        ( self.books.map{|book| book.rating}.sum).to_f
+#     end
+    
+
+#     def average_rating
+#        ( total_rating / self.books.map{|book| book.rating}.count).to_f
+#     end
+
+#     def self.highest_rating_author
+#        high_rating = self.all.map{|author| author.average_rating}.max
+#        self.all.filter{|author| author.average_rating == high_rating}.map {|author| author.full_name}
+#     end
+
+#     def self.lowest_rating_author
+#         low_rating = self.all.map{|author| author.average_rating}.min
+#         self.all.filter{|author| author.average_rating == low_rating}.map {|author| author.full_name}
+#     end
+
+#     def highest_rated_book
+#         high_rating = self.books.map{ |book| book.rating}.max 
+#         self.books.filter{|book| book.rating == high_rating}.map {|book| book.title}
+#     end
+
+#     def lowest_rated_book
+#         low_rating = self.books.map {|book| book.rating}.min
+#         self.books.filter{|book| book.rating == low_rating}.map {|book| book.title}
+#     end
+
+#     def self.all_books_with_classic_genre
+#         self.all.filter{|book| book.genre == "Classic"}
+#     end
+
+
+For Author.rb 
+    # def self.most_books
+    #     includes(:books).all.max_by{|author| author.books.length}
+    # end
+
+    # def self.least_books
+    #     includes(:books).all.min_by{|author| author.books.length}
+    # end
+
+    # def total_rating
+    #    (self.books.map{|book| book.rating}.sum).to_f
+    # end
+
+    # def average_rating
+    #     ( total_rating / self.books.map{|book| book.rating}.count).to_f
+    # end
+
+    # def self.highest_rated_author
+    #     highest_rating = self.all.map{|author| author.average_rating}.max 
+    #     self.all.filter{|author| author.average_rating == highest_rating}.map{|author| author.name}
+    # end
+
+    # def self.lowest_rated_author
+    # end
+
+For Book.rb 
+
+# def self.books_with_classic_genre
+#         self.where({genre: "Classic"})
+#     end
+
+#     def self.books_with_mystery_genre
+#         self.where({genre: "Mystery"}).map{|book| book.title}
+#     end
+
+#     def self.books_with_mythology_genre
+#         self.where({genre: "Mythology"}).map{|book| book.title}
+#     end
+
+#     def self.books_with_highest_rating
+#        self.where({rating: 10}).map{|book| book.title}
+#     end
+
+#     def self.books_with_the_lowest_rating
+#         self.where({rating: 1}).map{|book| book.title}
+#      end
+
