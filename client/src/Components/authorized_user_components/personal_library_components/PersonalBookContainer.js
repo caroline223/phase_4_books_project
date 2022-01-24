@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PersonalBookInfo from './PersonalBookInfo'
 import { Card, Button } from 'semantic-ui-react'
 import BookSearch from '../book_components/BookSearch'
+import NavBar from '../../NavBar'
 
 
 function PersonalBookContainer(){
@@ -44,7 +45,8 @@ function PersonalBookContainer(){
    
     return(
        <div>
-            <br />
+           <NavBar />
+            <br /> <br /> <br /> <br />
             <div className="h1">Your Personal Library</div> 
             <br /><br />
             <BookSearch searchBooks={searchBooks} />
