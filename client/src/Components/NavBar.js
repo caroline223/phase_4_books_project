@@ -12,6 +12,7 @@ function NavBar({ setUser }) {
   const history = useHistory()
 
   const clickLogout = () => {
+    if(window.confirm("Are you done?"))
     fetch(`/logout`, {
       method: 'DELETE',
       credentials: 'include'
