@@ -39,11 +39,13 @@ function LoginForm({ setUser }) {
 
 
   return(
-    <div>
+    <div id='loginPage'>
        <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
       <Header as='h2' color='purple' textAlign='center'>
-       Log-in to your account
+        <div style={{fontFamily: 'optima', color: 'lightgray', fontWeight: 'bold', fontSize: '38px'}}>
+          Account Login
+        </div>
       </Header>
       {/* <Redirect to="/login" /> */}
       <Form size='large' onSubmit={handleSubmit}>
@@ -70,19 +72,23 @@ function LoginForm({ setUser }) {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <Button color='purple' fluid size='large'>
-            Login
+          <Button color='gray' fluid size='large'>
+            <div style={{fontFamily: 'optima'}}>
+              Login
+            </div>
           </Button>
           <br />
           <Button href="/" fluid size='large'>
-            Home
+             <div style={{fontFamily: 'optima'}}>
+              Home
+            </div>
           </Button>
         </Segment>
       </Form>
-      <Message>
-        New to us? <a href='/signup'>Sign Up</a>
+      <Message style={{fontFamily: 'cursive'}}>
+        New to us? &nbsp; <a href='/signup'>Sign Up</a>
       </Message>
-      <Message>
+      <Message style={{fontFamily: 'optima'}}>
         {errors}
       </Message>
     </Grid.Column>
