@@ -27,12 +27,11 @@ function NavBar({ setUser }) {
   
   return(
     <div>
-    <Menu fixed='top' style={{backgroundColor: "lavender"}}>
+    <Menu fixed='top' style={{backgroundColor: "beige"}}>
       <Container>
         <Menu.Item as='a' header>
           Simply Books
         </Menu.Item>
-        
         <Dropdown item simple text='Options'>
           <Dropdown.Menu>
             <Dropdown.Item  href="/books">Featured Books</Dropdown.Item>
