@@ -53,16 +53,18 @@
 }
 
 .h1 {
-  font-family: cursive;
+  font-family: optima;
   text-align: center;
-  color: #6f7c86;
+  color: white;
   font-size: 35pt;
 }
 
 p{
   text-align: center;
-  font-family: cursive;
-  font-size: 15pt;
+  font-family: optima;
+  font-size: 20pt;
+  font-weight: bold;
+  color: white
 }
 
 .searchBar {
@@ -71,6 +73,18 @@ p{
   align-items: center;
 }
 
-h1{
-  text-align: center;
+.miscellaneousPages{
+  background-image: url('/Users/carolineforrester/Flatiron/code/phase_4/project/project-template-react-rails-api/client/src/images/pexels-pixabay-159711.jpg');
+  background-size: 100%;
+  height: 100vh;
+  opacity: 0.9;
 }
+
+.infoPage{
+  background-image: url('/Users/carolineforrester/Flatiron/code/phase_4/project/project-template-react-rails-api/client/src/images/pexels-engin-akyurt-1568757.jpg');
+  background-size: 100%;
+  height: 100vh;
+  overflow: scroll;
+}
+
+
