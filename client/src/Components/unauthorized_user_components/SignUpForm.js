@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Form, Message, Segment, Grid } from 'semantic-ui-react'
+import { Button, Form, Message, Segment, Grid, Header } from 'semantic-ui-react'
 import { useHistory } from 'react-router-dom'
 
 function SignUpForm({ setUser }){
@@ -46,12 +46,16 @@ function SignUpForm({ setUser }){
     }
 
     return(
-     <div>
+     <div className='miscellaneousPages'>
         <br />
-        <div className="h1">Create An Account</div>
         <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
             <Grid.Column style={{ maxWidth: 450 }}>
-            <Form size='large' onSubmit={handleSubmit}>
+            <Header as='h2' color='purple' textAlign='center'>
+                <div style={{fontFamily: 'optima', color: 'lightgray', fontWeight: 'bold', fontSize: '38px'}}>
+                Create An Account
+                </div>
+            </Header>
+            <Form size='large' onSubmit={handleSubmit} style={{fontFamily: 'optima'}}>
                 <Segment stacked>
                 <Form.Input 
                     label="Enter Email Address"
@@ -66,7 +70,7 @@ function SignUpForm({ setUser }){
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
-                        />
+                        />   
                 <Form.Input 
                         label="Create Password"
                         type='password' 
@@ -82,17 +86,17 @@ function SignUpForm({ setUser }){
                         onChange={(e) => setPasswordConfirmation(e.target.value)}
                         required
                         />
-                <Button color='purple' fluid size='large'>
+                <Button  fluid size='large' style={{fontFamily: 'optima'}}>
                     Submit
                 </Button>
                 <br />
-                <Button href="/login" fluid size='large'>
+                <Button href="/login" fluid size='large' style={{fontFamily: 'optima'}}>
                     Back
                 </Button>
                 </Segment>
            
             <Message>
-                {errors}
+              {errors}  
             </Message>
             </Form>
             </Grid.Column>
