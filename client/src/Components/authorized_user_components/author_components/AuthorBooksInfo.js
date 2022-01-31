@@ -9,14 +9,15 @@ function AuthorBooksInfo(props) {
     const layout = {
         card : {
             opacity: "0.8",
-            borderRadius: "40px"
+            borderRadius: "40px",
+            margin: '20px'
         }
     }
 
     const { title, genre, publishing_date, rating } = props.data
 
     return(
-        <div>
+        <div >
          <Card style={layout.card} color='olive' >
             <Image src={bookPhoto[Math.floor(Math.random()*bookPhoto.length)]} width="300" height="200"/> 
             <Card.Content className="description">

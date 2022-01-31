@@ -74,15 +74,15 @@ function PersonalBookInfo(props){
                   <br />  
                   <div>Did you read this book?
                   <br />
-                    <Button onClick={readBook} id={props.book.id}>{book.read ? "Yes" : "No"}</Button>
+                    <Button style={{fontFamily: 'optima'}} onClick={readBook} id={props.book.id}>{book.read ? "Yes" : "No"}</Button>
                   </div> 
                   <div>Would you recommend this book?
                   <br />
-                    <Button onClick={recommendBook} id={props.book.id}>{book.consider ? "Yes" : "No"}</Button>
+                    <Button style={{fontFamily: 'optima'}} onClick={recommendBook} id={props.book.id}>{book.consider ? "Yes" : "No"}</Button>
                   </div>   
               </Card.Description>  
               <br />  
-              <Button onClick={removeBook} id={props.book.id}>Remove</Button>
+              <Button style={{fontFamily: 'optima'}} onClick={removeBook} id={props.book.id}>Remove</Button>
             </Card.Content>
       </Card>
     )

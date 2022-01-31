@@ -54,7 +54,7 @@ function BookInfo(props){
                   <br />
               </Card.Description> 
               <div className="buttonPosition">
-                  <Button onClick={clickNewBook} id={props.book.id}>{addNewBook ? "Book Added" : "Add To Library"}</Button> 
+                 <Button style={{fontFamily: 'optima'}} onClick={clickNewBook} id={props.book.id}>{addNewBook ? "Book Added" : "Add To Library"}</Button>  
                </div>
             </Card.Content>
       </Card>

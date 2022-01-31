@@ -19,7 +19,7 @@ function BookReviewsContainer() {
     const reviewsDisplay = () => data.map((d) => <BookReviewsInfo key={d.id} data={d} />)
 
    return(
-       <div>
+       <div className='infoPage'>
            <NavBar />
            <br /> <br /> <br />
           <div className="h1">Reviews</div> 

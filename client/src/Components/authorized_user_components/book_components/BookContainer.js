@@ -47,7 +47,7 @@ function BookContainer({setUser}){
         .then(data => console.log(data));
     }
    return(
-       <div>
+       <div className='infoPage'>
             <NavBar setUser={setUser} />
             <br /><br /><br /><br />
             <div className="h1">Featured Books</div> 

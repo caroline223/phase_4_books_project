@@ -44,7 +44,7 @@ function PersonalBookContainer(){
   
    
     return(
-       <div>
+       <div className='infoPage'>
            <NavBar />
             <br /> <br /> <br /> <br />
             <div className="h1">Your Personal Library</div> 
@@ -54,9 +54,9 @@ function PersonalBookContainer(){
             <Card.Group itemsPerRow={4}>
                 {filteredBooks.length > 0 ? filteredBookDisplay(): bookDisplay()}
             </Card.Group>
-            <br />
+            <br /><br />
             <div className="buttonPosition">
-            <Button href="/books">Back</Button>
+            <Button href="/books" style={{fontFamily: 'optima'}}>Back</Button>
             </div>
        </div>
    )

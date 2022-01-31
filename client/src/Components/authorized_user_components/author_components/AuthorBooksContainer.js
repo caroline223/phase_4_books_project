@@ -20,19 +20,19 @@ function AuthorBooksContainer() {
 
     
     return(
-        <div>
+        <div className='infoPage'>
             <NavBar />
             <br /><br /><br />
                 <div className="h1">Author's Writing Collection</div> 
                 <br /><br /><br /><br />
-                <div>
+                <div >
                 <Card.Group itemsPerRow={3}>
                     {data.length > 0 && booksDisplay()}
                 </Card.Group>
                 </div>
                 <br />
-                <div className="buttonPosition">
-                    <Button href="/authors" >Back</Button>
+                <div className="buttonPosition" >
+                    <Button href="/authors" style={{fontFamily: 'optima'}}>Back</Button>
                 </div>
         </div>
     )

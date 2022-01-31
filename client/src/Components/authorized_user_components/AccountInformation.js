@@ -36,9 +36,9 @@ function AccountInformation({ setUser }){
 
 
     return(
-        <div>
-            <br />
-            <h1 style={{fontFamily: "optima"}}>Account Information</h1>
+        <div className='infoPage'>
+            <br /><br />
+            <div className='h1'>Account Information</div>
             <br />
             <div className='cardPosition'>
                  <Card className='description' >
@@ -54,8 +54,8 @@ function AccountInformation({ setUser }){
             
             
             <div style={{textAlign: 'center'}}>
-                <Button style={{fontFamily: 'cursive'}} href="/books">Back</Button>&nbsp;&nbsp;
-                <Button style={{fontFamily: 'cursive'}} onClick={deleteAccount}>Delete Account</Button>
+                <Button style={{fontFamily: 'optima'}} href="/books">Back</Button>&nbsp;&nbsp;
+                <Button style={{fontFamily: 'optima'}} onClick={deleteAccount}>Delete Account</Button>
             </div>
         </div>
     )
